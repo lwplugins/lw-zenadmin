@@ -3,7 +3,7 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -63,6 +63,11 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.0.1 =
+* Add GitHub Actions release workflow
+* Add Hungarian translation (hu_HU)
+* Add POT template file for translations
 
 = 1.0.0 =
 * Initial release
