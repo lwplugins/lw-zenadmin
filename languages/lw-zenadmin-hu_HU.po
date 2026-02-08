@@ -1,0 +1,185 @@
+# Copyright (C) 2026 LW Plugins
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: LW ZenAdmin 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/lwplugins/lw-zenadmin/issues\n"
+"POT-Creation-Date: 2026-02-08T13:51:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LW Plugins <info@lwplugins.com>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: lw-zenadmin\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: lw-zenadmin.php
+msgid "LW ZenAdmin"
+msgstr "LW ZenAdmin"
+
+#. Plugin URI of the plugin
+#: lw-zenadmin.php
+msgid "https://github.com/lwplugins/lw-zenadmin"
+msgstr "https://github.com/lwplugins/lw-zenadmin"
+
+#. Description of the plugin
+#: lw-zenadmin.php
+msgid ""
+"Clean up your WordPress admin — collect notices into a sidebar panel and "
+"manage dashboard widgets."
+msgstr ""
+"Tedd rendbe a WordPress admin felületet — gyűjtsd a notice-okat egy oldalsáv"
+" panelbe, és kezeld a dashboard widgeteket."
+
+#. Author of the plugin
+#: lw-zenadmin.php includes/Admin/ParentPage.php:106
+#: includes/Admin/ParentPage.php:107 includes/Admin/ParentPage.php:128
+msgid "LW Plugins"
+msgstr "LW Plugins"
+
+#. Author URI of the plugin
+#: lw-zenadmin.php
+msgid "https://lwplugins.com"
+msgstr "https://lwplugins.com"
+
+#: includes/Admin/ParentPage.php:129
+msgid "Lightweight plugins for WordPress - minimal footprint, maximum impact."
+msgstr ""
+"Könnyű bővítmények WordPresshez – minimális terhelés, maximális hatás."
+
+#: includes/Admin/ParentPage.php:180
+msgid "Active"
+msgstr "Aktív"
+
+#: includes/Admin/ParentPage.php:188
+msgid "Settings"
+msgstr "Beállítások"
+
+#: includes/Admin/ParentPage.php:192
+msgid "Get Plugin"
+msgstr "Bővítmény letöltése"
+
+#: includes/Admin/Settings/TabNotices.php:34
+#: includes/Features/NoticeCollector.php:44
+#: includes/Features/NoticePanel.php:34
+msgid "Notices"
+msgstr "Notice-ok"
+
+#: includes/Admin/Settings/TabNotices.php:53
+msgid "Notice Collector"
+msgstr "Notice gyűjtő"
+
+#: includes/Admin/Settings/TabNotices.php:57
+msgid ""
+"Collect all admin notices into a sidebar panel accessible from the admin "
+"bar. Keeps your admin pages clean and distraction-free."
+msgstr ""
+"Gyűjtsd össze az összes admin notice-ot egy oldalsáv panelbe, ami az admin "
+"bar-ból elérhető. Tisztán és zavaró tényezőktől mentesen tartja az admin "
+"oldalaidat."
+
+#: includes/Admin/Settings/TabNotices.php:63
+#: includes/Admin/Settings/TabWidgets.php:67
+msgid "Enable"
+msgstr "Engedélyezés"
+
+#: includes/Admin/Settings/TabNotices.php:69
+msgid "Collect notices into sidebar panel"
+msgstr "Notice-ok gyűjtése oldalsáv panelbe"
+
+#: includes/Admin/Settings/TabNotices.php:70
+msgid ""
+"Adds a Notices button to the admin bar. All notices are moved into a slide-"
+"in panel."
+msgstr ""
+"Hozzáad egy Notice-ok gombot az admin bar-hoz. Minden notice egy becsúszó "
+"panelbe kerül."
+
+#: includes/Admin/Settings/TabWidgets.php:38
+msgid "Widgets"
+msgstr "Widgetek"
+
+#: includes/Admin/Settings/TabWidgets.php:57
+msgid "Dashboard Widget Manager"
+msgstr "Dashboard Widget Kezelő"
+
+#: includes/Admin/Settings/TabWidgets.php:61
+msgid ""
+"Control which widgets appear on your WordPress dashboard. Core and "
+"WooCommerce widgets are enabled by default."
+msgstr ""
+"Szabályozd, mely widgetek jelenjenek meg a WordPress dashboardon. A core és "
+"a WooCommerce widgetek alapból engedélyezve vannak."
+
+#: includes/Admin/Settings/TabWidgets.php:73
+msgid "Manage dashboard widget visibility"
+msgstr "Dashboard widgetek láthatóságának kezelése"
+
+#: includes/Admin/Settings/TabWidgets.php:74
+msgid "Hide or show individual dashboard widgets based on your preferences."
+msgstr ""
+"Egyéni beállításaid alapján elrejtheted vagy megjelenítheted az egyes "
+"dashboard widgeteket."
+
+#: includes/Admin/Settings/TabWidgets.php:96
+msgid ""
+"No widgets discovered yet. Visit the Dashboard once so the plugin can detect"
+" them."
+msgstr ""
+"Még nem találtam widgeteket. Látogasd meg egyszer a Dashboardot, hogy a "
+"bővítmény fel tudja ismerni őket."
+
+#: includes/Admin/Settings/TabWidgets.php:105
+msgid "Widget Visibility"
+msgstr "Widget láthatóság"
+
+#: includes/Admin/Settings/TabWidgets.php:109
+msgid "Show"
+msgstr "Megjelenítés"
+
+#: includes/Admin/Settings/TabWidgets.php:110
+msgid "Widget Name"
+msgstr "Widget neve"
+
+#: includes/Admin/Settings/TabWidgets.php:111
+msgid "Widget ID"
+msgstr "Widget ID"
+
+#: includes/Admin/Settings/TabWidgets.php:153
+msgid "WordPress Core"
+msgstr "WordPress Core"
+
+#: includes/Admin/Settings/TabWidgets.php:157
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/Admin/Settings/TabWidgets.php:161
+msgid "Third-party"
+msgstr "Harmadik féltől származó"
+
+#: includes/Admin/SettingsPage.php:57 includes/Admin/SettingsPage.php:58
+msgid "ZenAdmin"
+msgstr "ZenAdmin"
+
+#: includes/Admin/SettingsPage.php:113
+msgid "Settings saved."
+msgstr "Beállítások elmentve."
+
+#: includes/Admin/SettingsPage.php:126
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: includes/Features/NoticeCollector.php:50
+msgid "Admin Notices"
+msgstr "Admin notice-ok"
+
+#: includes/Features/NoticePanel.php:35
+msgid "Close"
+msgstr "Bezárás"
+
+#: includes/Features/NoticePanel.php:41
+msgid "No notices."
+msgstr "Nincs notice."
