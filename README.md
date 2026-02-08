@@ -1,4 +1,4 @@
-# LW ZenAdmin
+# Lightweight ZenAdmin
 
 Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets.
 

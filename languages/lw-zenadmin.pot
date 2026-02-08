@@ -1,0 +1,163 @@
+# Copyright (C) 2026 LW Plugins
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: LW ZenAdmin 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/lwplugins/lw-zenadmin/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LW Plugins <info@lwplugins.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-08T13:51:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: lw-zenadmin\n"
+
+#. Plugin Name of the plugin
+#: lw-zenadmin.php
+msgid "LW ZenAdmin"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: lw-zenadmin.php
+msgid "https://github.com/lwplugins/lw-zenadmin"
+msgstr ""
+
+#. Description of the plugin
+#: lw-zenadmin.php
+msgid "Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets."
+msgstr ""
+
+#. Author of the plugin
+#: lw-zenadmin.php
+#: includes/Admin/ParentPage.php:106
+#: includes/Admin/ParentPage.php:107
+#: includes/Admin/ParentPage.php:128
+msgid "LW Plugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: lw-zenadmin.php
+msgid "https://lwplugins.com"
+msgstr ""
+
+#: includes/Admin/ParentPage.php:129
+msgid "Lightweight plugins for WordPress - minimal footprint, maximum impact."
+msgstr ""
+
+#: includes/Admin/ParentPage.php:180
+msgid "Active"
+msgstr ""
+
+#: includes/Admin/ParentPage.php:188
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/ParentPage.php:192
+msgid "Get Plugin"
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:34
+#: includes/Features/NoticeCollector.php:44
+#: includes/Features/NoticePanel.php:34
+msgid "Notices"
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:53
+msgid "Notice Collector"
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:57
+msgid "Collect all admin notices into a sidebar panel accessible from the admin bar. Keeps your admin pages clean and distraction-free."
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:63
+#: includes/Admin/Settings/TabWidgets.php:67
+msgid "Enable"
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:69
+msgid "Collect notices into sidebar panel"
+msgstr ""
+
+#: includes/Admin/Settings/TabNotices.php:70
+msgid "Adds a Notices button to the admin bar. All notices are moved into a slide-in panel."
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:38
+msgid "Widgets"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:57
+msgid "Dashboard Widget Manager"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:61
+msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:73
+msgid "Manage dashboard widget visibility"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:74
+msgid "Hide or show individual dashboard widgets based on your preferences."
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:96
+msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:105
+msgid "Widget Visibility"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:109
+msgid "Show"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:110
+msgid "Widget Name"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:111
+msgid "Widget ID"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:153
+msgid "WordPress Core"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:157
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Admin/Settings/TabWidgets.php:161
+msgid "Third-party"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:57
+#: includes/Admin/SettingsPage.php:58
+msgid "ZenAdmin"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:113
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:126
+msgid "Save Changes"
+msgstr ""
+
+#: includes/Features/NoticeCollector.php:50
+msgid "Admin Notices"
+msgstr ""
+
+#: includes/Features/NoticePanel.php:35
+msgid "Close"
+msgstr ""
+
+#: includes/Features/NoticePanel.php:41
+msgid "No notices."
+msgstr ""
