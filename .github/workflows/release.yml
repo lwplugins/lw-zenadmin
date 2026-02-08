@@ -1,0 +1,87 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'lw-zenadmin.php'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version from plugin file
+        id: get_version
+        run: |
+          VERSION=$(grep -m1 "Version:" lw-zenadmin.php | sed 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Extracted version: $VERSION"
+
+      - name: Check if tag exists
+        id: check_tag
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Tag v$VERSION already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Tag v$VERSION does not exist"
+          fi
+
+      - name: Setup PHP
+        if: steps.check_tag.outputs.exists == 'false'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install production dependencies
+        if: steps.check_tag.outputs.exists == 'false'
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Create release ZIP
+        if: steps.check_tag.outputs.exists == 'false'
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+        run: |
+          mkdir -p dist
+          zip -r "dist/lw-zenadmin-${VERSION}.zip" . \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "dist/*" \
+            -x "builds/*" \
+            -x "composer.json" \
+            -x "composer.lock" \
+            -x "phpcs.xml.dist" \
+            -x "node_modules/*" \
+            -x ".gitignore" \
+            -x "*.log"
+
+      - name: Create tag and release
+        if: steps.check_tag.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.get_version.outputs.version }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: v${{ steps.get_version.outputs.version }}
+          body: |
+            ## LW ZenAdmin v${{ steps.get_version.outputs.version }}
+
+            See [readme.txt](https://github.com/lwplugins/lw-zenadmin/blob/main/readme.txt) for changelog.
+          files: |
+            dist/lw-zenadmin-${{ steps.get_version.outputs.version }}.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
