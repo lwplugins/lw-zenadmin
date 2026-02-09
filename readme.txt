@@ -3,16 +3,16 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.0.4
+Stable tag: 1.1.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets.
+Clean up your WordPress admin — notices sidebar, dashboard widget manager, and admin menu manager.
 
 == Description ==
 
-LW ZenAdmin declutters your WordPress admin interface with two focused features:
+LW ZenAdmin declutters your WordPress admin interface with three focused features:
 
 = Notice Collector =
 
@@ -42,6 +42,16 @@ Or install via Composer:
 
 `composer require lwplugins/lw-zenadmin`
 
+= Admin Menu Manager =
+
+Control which menu items appear in the admin sidebar. Hide unused menus to keep things clean while protected items (Dashboard, Settings, Plugins, LW Plugins) stay visible.
+
+* Auto-discovers all registered admin menus and submenus
+* Grouped by source: WordPress Core, WooCommerce, LW Plugins, Third-party
+* Protected menus cannot be hidden — prevents lockouts
+* Individual submenu control with parent grouping
+* WP-CLI support: `wp lw-zenadmin menu list/show/hide/reset`
+
 == Frequently Asked Questions ==
 
 = Does this hide important notices? =
@@ -63,6 +73,14 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.1.0 =
+* Add Admin Menu Manager — hide/show admin sidebar menu items
+* Auto-discovery of all registered menus and submenus
+* Grouped UI: WordPress Core, WooCommerce, LW Plugins, Third-party
+* Protected menus (Dashboard, Settings, Plugins, LW Plugins) cannot be hidden
+* WP-CLI commands: menu list, show, hide, show-all, hide-all, reset
+* Feature is disabled by default — opt-in via settings
 
 = 1.0.4 =
 * Minor fix

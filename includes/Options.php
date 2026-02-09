@@ -30,6 +30,16 @@ final class Options {
 	public const DISCOVERED_WIDGETS = 'lw_zenadmin_discovered_widgets';
 
 	/**
+	 * Menu settings option name.
+	 */
+	public const MENU_SETTINGS = 'lw_zenadmin_menu_settings';
+
+	/**
+	 * Discovered menus option name.
+	 */
+	public const DISCOVERED_MENUS = 'lw_zenadmin_discovered_menus';
+
+	/**
 	 * Cached options.
 	 *
 	 * @var array<string, mixed>|null
@@ -45,6 +55,7 @@ final class Options {
 		return [
 			'notices_enabled' => true,
 			'widgets_enabled' => true,
+			'menu_enabled'    => false,
 		];
 	}
 
@@ -124,6 +135,44 @@ final class Options {
 	}
 
 	/**
+	 * Get menu visibility settings.
+	 *
+	 * @return array<string>|false False if never saved.
+	 */
+	public static function get_menu_settings(): array|false {
+		return get_option( self::MENU_SETTINGS, false );
+	}
+
+	/**
+	 * Save menu visibility settings.
+	 *
+	 * @param array<string> $visible List of visible menu slugs.
+	 * @return bool
+	 */
+	public static function save_menu_settings( array $visible ): bool {
+		return update_option( self::MENU_SETTINGS, $visible, false );
+	}
+
+	/**
+	 * Get discovered menus.
+	 *
+	 * @return array<string, array{title: string, icon: string}> Slug => data map.
+	 */
+	public static function get_discovered_menus(): array {
+		return (array) get_option( self::DISCOVERED_MENUS, [] );
+	}
+
+	/**
+	 * Save discovered menus.
+	 *
+	 * @param array<string, array{title: string, icon: string}> $menus Slug => data map.
+	 * @return bool
+	 */
+	public static function save_discovered_menus( array $menus ): bool {
+		return update_option( self::DISCOVERED_MENUS, $menus, false );
+	}
+
+	/**
 	 * Clear options cache.
 	 *
 	 * @return void
@@ -141,6 +190,8 @@ final class Options {
 		delete_option( self::OPTION_NAME );
 		delete_option( self::WIDGET_SETTINGS );
 		delete_option( self::DISCOVERED_WIDGETS );
+		delete_option( self::MENU_SETTINGS );
+		delete_option( self::DISCOVERED_MENUS );
 		self::$options = null;
 	}
 }

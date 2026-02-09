@@ -12,6 +12,8 @@ namespace LightweightPlugins\ZenAdmin;
 use LightweightPlugins\ZenAdmin\Admin\SettingsPage;
 use LightweightPlugins\ZenAdmin\CLI\Commands as CLICommands;
 use LightweightPlugins\ZenAdmin\CLI\WidgetCommands as CLIWidgetCommands;
+use LightweightPlugins\ZenAdmin\CLI\MenuCommands as CLIMenuCommands;
+use LightweightPlugins\ZenAdmin\Features\MenuManager;
 use LightweightPlugins\ZenAdmin\Features\NoticeCollector;
 use LightweightPlugins\ZenAdmin\Features\NoticePanel;
 use LightweightPlugins\ZenAdmin\Features\WidgetManager;
@@ -58,6 +60,10 @@ final class Plugin {
 		if ( Options::get( 'widgets_enabled' ) ) {
 			new WidgetManager();
 		}
+
+		if ( Options::get( 'menu_enabled' ) ) {
+			new MenuManager();
+		}
 	}
 
 	/**
@@ -80,6 +86,7 @@ final class Plugin {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			\WP_CLI::add_command( 'lw-zenadmin', CLICommands::class );
 			\WP_CLI::add_command( 'lw-zenadmin widget', CLIWidgetCommands::class );
+			\WP_CLI::add_command( 'lw-zenadmin menu', CLIMenuCommands::class );
 		}
 	}
 

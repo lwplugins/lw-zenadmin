@@ -1,6 +1,6 @@
 # Lightweight ZenAdmin
 
-Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets.
+Clean up your WordPress admin — notices sidebar, dashboard widget manager, and admin menu manager.
 
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://php.net)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org)
@@ -33,9 +33,19 @@ Controls which widgets appear on the WordPress dashboard, grouped by source.
 - **Sensible defaults** — Core + WooCommerce visible, Third-party hidden
 - **Checkbox UI** — simple table interface on the settings page
 
+### Admin Menu Manager
+
+The WordPress admin sidebar is packed with menu items — most of which are rarely needed after the initial site setup. Media, Comments, Tools, and various plugin menus just add clutter and hurt usability, especially for non-technical users. The Admin Menu Manager lets you decide which menu items stay visible.
+
+- **Auto-discovery** — automatically detects all registered menus and submenus
+- **Grouped display** — WordPress Core, WooCommerce, LW Plugins, Third-party
+- **Protected menus** — Dashboard, Settings, Plugins, and LW Plugins can never be hidden, preventing lockouts
+- **Submenu-level control** — manage individual submenu items, not just top-level menus
+- **Disabled by default** — only activates when you enable it in the settings
+
 ### WP-CLI
 
-Full CLI support for toggling features and managing widget visibility.
+Full CLI support for toggling features, managing widgets and menus.
 
 ```bash
 # Feature management
@@ -50,6 +60,14 @@ wp lw-zenadmin widget hide dashboard_primary
 wp lw-zenadmin widget show-all
 wp lw-zenadmin widget hide-all
 wp lw-zenadmin widget reset
+
+# Menu management
+wp lw-zenadmin menu list
+wp lw-zenadmin menu show tools.php
+wp lw-zenadmin menu hide edit-comments.php
+wp lw-zenadmin menu show-all
+wp lw-zenadmin menu hide-all
+wp lw-zenadmin menu reset
 ```
 
 See [docs/CLI.md](docs/CLI.md) for the complete command reference.
@@ -65,8 +83,9 @@ Or download and upload to `/wp-content/plugins/`.
 ## Usage
 
 1. Go to **LW Plugins → ZenAdmin**
-2. Toggle Notice Collector and Widget Manager on/off
-3. Configure widget visibility in the Widgets tab
+2. Toggle Notice Collector, Widget Manager and Menu Manager on/off
+3. Configure widget visibility in the **Widgets** tab
+4. Configure menu visibility in the **Menus** tab
 
 ## Settings
 
@@ -74,8 +93,9 @@ Or download and upload to `/wp-content/plugins/`.
 |--------|---------|-------------|
 | `notices_enabled` | `true` | Enable/disable the notice collector |
 | `widgets_enabled` | `true` | Enable/disable the widget manager |
+| `menu_enabled` | `false` | Enable/disable the admin menu manager |
 
-Widget visibility is stored separately and can be managed from the admin UI or CLI.
+Widget and menu visibility are stored separately and can be managed from the admin UI or CLI.
 
 ## Documentation
 

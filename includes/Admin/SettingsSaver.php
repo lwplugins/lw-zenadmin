@@ -39,6 +39,7 @@ final class SettingsSaver {
 
 		self::save_options();
 		self::save_widget_settings();
+		self::save_menu_settings();
 
 		$active_tab = isset( $_POST['lw_zenadmin_active_tab'] )
 			? sanitize_key( $_POST['lw_zenadmin_active_tab'] )
@@ -93,5 +94,29 @@ final class SettingsSaver {
 		}
 
 		Options::save_widget_settings( $enabled );
+	}
+
+	/**
+	 * Save menu visibility settings.
+	 *
+	 * @return void
+	 */
+	private static function save_menu_settings(): void {
+		// Don't save if no menus discovered yet — avoids saving empty array on first enable.
+		if ( empty( Options::get_discovered_menus() ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in maybe_save().
+		$raw_menus = isset( $_POST['lw_zenadmin_menus'] )
+			? wp_unslash( (array) $_POST['lw_zenadmin_menus'] ) // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			: [];
+
+		$visible = [];
+		foreach ( $raw_menus as $slug ) {
+			$visible[] = sanitize_text_field( (string) $slug );
+		}
+
+		Options::save_menu_settings( $visible );
 	}
 }
