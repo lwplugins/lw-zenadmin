@@ -54,18 +54,12 @@ jobs:
         env:
           VERSION: ${{ steps.get_version.outputs.version }}
         run: |
-          mkdir -p dist
-          zip -r "dist/lw-zenadmin-${VERSION}.zip" . \
-            -x ".git/*" \
-            -x ".github/*" \
-            -x "dist/*" \
-            -x "builds/*" \
-            -x "composer.json" \
-            -x "composer.lock" \
-            -x "phpcs.xml.dist" \
-            -x "node_modules/*" \
-            -x ".gitignore" \
-            -x "*.log"
+          mkdir -p dist/lw-zenadmin
+          rsync -av --exclude='.git' --exclude='.github' --exclude='dist' \
+            --exclude='builds' --exclude='composer.json' --exclude='composer.lock' \
+            --exclude='phpcs.xml.dist' --exclude='node_modules' --exclude='.gitignore' \
+            --exclude='*.log' . dist/lw-zenadmin/
+          cd dist && zip -r "lw-zenadmin-${VERSION}.zip" lw-zenadmin/
 
       - name: Create tag and release
         if: steps.check_tag.outputs.exists == 'false'
