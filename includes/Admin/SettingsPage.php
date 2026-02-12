@@ -90,7 +90,7 @@ final class SettingsPage {
 		wp_enqueue_script(
 			'lw-zenadmin-admin',
 			LW_ZENADMIN_URL . 'assets/js/admin.js',
-			[ 'jquery' ],
+			[],
 			LW_ZENADMIN_VERSION,
 			true
 		);
@@ -108,7 +108,11 @@ final class SettingsPage {
 
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+			<h1>
+				<img src="<?php echo esc_url( LW_ZENADMIN_URL . 'assets/img/title-icon.svg' ); ?>" alt="" class="lw-title-icon" />
+				<?php esc_html_e( 'Lightweight ZenAdmin', 'lw-zenadmin' ); ?>
+				<span style="font-size: 13px; font-weight: 400; color: #888;">(<?php echo esc_html( LW_ZENADMIN_VERSION ); ?>)</span>
+			</h1>
 
 			<?php if ( isset( $_GET['updated'] ) && '1' === $_GET['updated'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 				<div class="notice notice-success lw-notice is-dismissible">
