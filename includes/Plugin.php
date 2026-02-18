@@ -13,6 +13,7 @@ use LightweightPlugins\ZenAdmin\Admin\SettingsPage;
 use LightweightPlugins\ZenAdmin\CLI\Commands as CLICommands;
 use LightweightPlugins\ZenAdmin\CLI\WidgetCommands as CLIWidgetCommands;
 use LightweightPlugins\ZenAdmin\CLI\MenuCommands as CLIMenuCommands;
+use LightweightPlugins\ZenAdmin\Features\AdminBarManager;
 use LightweightPlugins\ZenAdmin\Features\MenuManager;
 use LightweightPlugins\ZenAdmin\Features\NoticeCollector;
 use LightweightPlugins\ZenAdmin\Features\NoticePanel;
@@ -29,6 +30,7 @@ final class Plugin {
 	public function __construct() {
 		$this->init_hooks();
 		$this->init_features();
+		$this->init_admin_bar();
 		$this->init_admin();
 		$this->init_cli();
 	}
@@ -63,6 +65,17 @@ final class Plugin {
 
 		if ( Options::get( 'menu_enabled' ) ) {
 			new MenuManager();
+		}
+	}
+
+	/**
+	 * Initialize admin bar feature (works on both admin and frontend).
+	 *
+	 * @return void
+	 */
+	private function init_admin_bar(): void {
+		if ( Options::get( 'adminbar_enabled' ) ) {
+			new AdminBarManager();
 		}
 	}
 

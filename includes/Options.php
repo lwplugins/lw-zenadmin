@@ -40,6 +40,16 @@ final class Options {
 	public const DISCOVERED_MENUS = 'lw_zenadmin_discovered_menus';
 
 	/**
+	 * Admin bar settings option name.
+	 */
+	public const ADMINBAR_SETTINGS = 'lw_zenadmin_adminbar_settings';
+
+	/**
+	 * Discovered admin bar nodes option name.
+	 */
+	public const DISCOVERED_ADMINBAR = 'lw_zenadmin_discovered_adminbar';
+
+	/**
 	 * Cached options.
 	 *
 	 * @var array<string, mixed>|null
@@ -53,9 +63,10 @@ final class Options {
 	 */
 	public static function get_defaults(): array {
 		return [
-			'notices_enabled' => true,
-			'widgets_enabled' => true,
-			'menu_enabled'    => false,
+			'notices_enabled'  => true,
+			'widgets_enabled'  => true,
+			'menu_enabled'     => false,
+			'adminbar_enabled' => false,
 		];
 	}
 
@@ -173,6 +184,44 @@ final class Options {
 	}
 
 	/**
+	 * Get admin bar visibility settings.
+	 *
+	 * @return array<string>|false False if never saved.
+	 */
+	public static function get_adminbar_settings(): array|false {
+		return get_option( self::ADMINBAR_SETTINGS, false );
+	}
+
+	/**
+	 * Save admin bar visibility settings.
+	 *
+	 * @param array<string> $visible List of visible node IDs.
+	 * @return bool
+	 */
+	public static function save_adminbar_settings( array $visible ): bool {
+		return update_option( self::ADMINBAR_SETTINGS, $visible, false );
+	}
+
+	/**
+	 * Get discovered admin bar nodes.
+	 *
+	 * @return array<string, array{title: string, parent: string}> Node ID => data map.
+	 */
+	public static function get_discovered_adminbar(): array {
+		return (array) get_option( self::DISCOVERED_ADMINBAR, [] );
+	}
+
+	/**
+	 * Save discovered admin bar nodes.
+	 *
+	 * @param array<string, array{title: string, parent: string}> $nodes Node ID => data map.
+	 * @return bool
+	 */
+	public static function save_discovered_adminbar( array $nodes ): bool {
+		return update_option( self::DISCOVERED_ADMINBAR, $nodes, false );
+	}
+
+	/**
 	 * Clear options cache.
 	 *
 	 * @return void
@@ -192,6 +241,8 @@ final class Options {
 		delete_option( self::DISCOVERED_WIDGETS );
 		delete_option( self::MENU_SETTINGS );
 		delete_option( self::DISCOVERED_MENUS );
+		delete_option( self::ADMINBAR_SETTINGS );
+		delete_option( self::DISCOVERED_ADMINBAR );
 		self::$options = null;
 	}
 }

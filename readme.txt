@@ -3,16 +3,16 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Clean up your WordPress admin — notices sidebar, dashboard widget manager, and admin menu manager.
+Clean up your WordPress admin — notices sidebar, dashboard widgets, admin menu, and admin bar manager.
 
 == Description ==
 
-LW ZenAdmin declutters your WordPress admin interface with three focused features:
+LW ZenAdmin declutters your WordPress admin interface with four focused features:
 
 = Notice Collector =
 
@@ -31,6 +31,16 @@ Control which widgets appear on your WordPress dashboard. Core and WooCommerce w
 * Grouped by source: WordPress Core, WooCommerce, Third-party
 * Simple checkbox interface to show/hide widgets
 * Sensible defaults — no setup required
+
+= Admin Bar Manager =
+
+Control which items appear in the WordPress admin bar. Hide clutter from cache plugins, SEO tools, and other plugins that add unnecessary toolbar items.
+
+* Auto-discovers all registered admin bar nodes
+* Grouped by source: WordPress Core, WooCommerce, Third-party
+* Protected items (My Account, Logout) cannot be hidden — prevents lockouts
+* Works on both admin pages and frontend
+* Disabled by default — opt-in via settings
 
 == Installation ==
 
@@ -73,6 +83,14 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.2.0 =
+* New: Admin Bar Manager — hide/show admin bar items (LiteSpeed, WP Rocket, etc.)
+* Auto-discovery of all registered admin bar nodes
+* Grouped UI: WordPress Core, WooCommerce, Third-party
+* Protected items (My Account, Logout) cannot be hidden
+* Works on both admin pages and frontend
+* Feature is disabled by default — opt-in via settings
 
 = 1.1.2 =
 * Minor fix

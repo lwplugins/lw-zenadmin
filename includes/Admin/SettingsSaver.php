@@ -40,6 +40,7 @@ final class SettingsSaver {
 		self::save_options();
 		self::save_widget_settings();
 		self::save_menu_settings();
+		self::save_adminbar_settings();
 
 		$active_tab = isset( $_POST['lw_zenadmin_active_tab'] )
 			? sanitize_key( $_POST['lw_zenadmin_active_tab'] )
@@ -118,5 +119,28 @@ final class SettingsSaver {
 		}
 
 		Options::save_menu_settings( $visible );
+	}
+
+	/**
+	 * Save admin bar visibility settings.
+	 *
+	 * @return void
+	 */
+	private static function save_adminbar_settings(): void {
+		if ( empty( Options::get_discovered_adminbar() ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in maybe_save().
+		$raw_nodes = isset( $_POST['lw_zenadmin_adminbar'] )
+			? wp_unslash( (array) $_POST['lw_zenadmin_adminbar'] ) // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			: [];
+
+		$visible = [];
+		foreach ( $raw_nodes as $node_id ) {
+			$visible[] = sanitize_text_field( (string) $node_id );
+		}
+
+		Options::save_adminbar_settings( $visible );
 	}
 }

@@ -1,6 +1,6 @@
 # Lightweight ZenAdmin
 
-Clean up your WordPress admin — notices sidebar, dashboard widget manager, and admin menu manager.
+Clean up your WordPress admin — notices sidebar, dashboard widgets, admin menu, and admin bar manager.
 
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://php.net)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org)
@@ -45,6 +45,16 @@ The WordPress admin sidebar is packed with menu items — most of which are rare
 - **Submenu-level control** — manage individual submenu items, not just top-level menus
 - **Disabled by default** — only activates when you enable it in the settings
 
+### Admin Bar Manager
+
+Cache plugins (LiteSpeed, WP Rocket), SEO tools, and other plugins love adding items to the admin bar. The Admin Bar Manager lets you hide the ones you don't need.
+
+- **Auto-discovery** — detects all registered admin bar nodes automatically
+- **Grouped display** — WordPress Core, WooCommerce, Third-party
+- **Protected items** — My Account and Logout can never be hidden, preventing lockouts
+- **Works everywhere** — filters the admin bar on both admin pages and the frontend
+- **Disabled by default** — only activates when you enable it in the settings
+
 ### WP-CLI
 
 Full CLI support for toggling features, managing widgets and menus.
@@ -85,9 +95,10 @@ Or download and upload to `/wp-content/plugins/`.
 ## Usage
 
 1. Go to **LW Plugins → ZenAdmin**
-2. Toggle Notice Collector, Widget Manager and Menu Manager on/off
+2. Toggle Notice Collector, Widget Manager, Menu Manager, and Admin Bar Manager on/off
 3. Configure widget visibility in the **Widgets** tab
 4. Configure menu visibility in the **Menus** tab
+5. Configure admin bar visibility in the **Admin Bar** tab
 
 ## Settings
 
@@ -96,8 +107,9 @@ Or download and upload to `/wp-content/plugins/`.
 | `notices_enabled` | `true` | Enable/disable the notice collector |
 | `widgets_enabled` | `true` | Enable/disable the widget manager |
 | `menu_enabled` | `false` | Enable/disable the admin menu manager |
+| `adminbar_enabled` | `false` | Enable/disable the admin bar manager |
 
-Widget and menu visibility are stored separately and can be managed from the admin UI or CLI.
+Widget, menu, and admin bar visibility are stored separately and can be managed from the admin UI or CLI.
 
 ## Documentation
 

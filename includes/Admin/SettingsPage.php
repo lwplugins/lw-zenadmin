@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace LightweightPlugins\ZenAdmin\Admin;
 
+use LightweightPlugins\ZenAdmin\Admin\Settings\TabAdminBar;
 use LightweightPlugins\ZenAdmin\Admin\Settings\TabInterface;
 use LightweightPlugins\ZenAdmin\Admin\Settings\TabMenu;
 use LightweightPlugins\ZenAdmin\Admin\Settings\TabNotices;
@@ -39,6 +40,7 @@ final class SettingsPage {
 			new TabNotices(),
 			new TabWidgets(),
 			new TabMenu(),
+			new TabAdminBar(),
 		];
 
 		add_action( 'admin_menu', [ $this, 'add_menu_page' ] );
