@@ -18,6 +18,7 @@ use LightweightPlugins\ZenAdmin\Features\MenuManager;
 use LightweightPlugins\ZenAdmin\Features\NoticeCollector;
 use LightweightPlugins\ZenAdmin\Features\NoticePanel;
 use LightweightPlugins\ZenAdmin\Features\WidgetManager;
+use LightweightPlugins\ZenAdmin\SiteManager\Integration as SiteManagerIntegration;
 
 /**
  * Main plugin class.
@@ -33,6 +34,7 @@ final class Plugin {
 		$this->init_admin_bar();
 		$this->init_admin();
 		$this->init_cli();
+		$this->init_site_manager();
 	}
 
 	/**
@@ -101,6 +103,15 @@ final class Plugin {
 			\WP_CLI::add_command( 'lw-zenadmin widget', CLIWidgetCommands::class );
 			\WP_CLI::add_command( 'lw-zenadmin menu', CLIMenuCommands::class );
 		}
+	}
+
+	/**
+	 * Initialize LW Site Manager integration.
+	 *
+	 * @return void
+	 */
+	private function init_site_manager(): void {
+		SiteManagerIntegration::init();
 	}
 
 	/**

@@ -3,7 +3,7 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,12 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.2.3 =
+* New: LW Site Manager integration - admin cleanup abilities for AI agents
+* New: lw-zenadmin/get-options - get ZenAdmin settings
+* New: lw-zenadmin/set-options - update settings
+* New: lw-zenadmin/list-widgets - list dashboard widgets with visibility status
 
 = 1.2.2 =
 * Fix: Smarter autoloader fallback - supports root Composer dependency installs
