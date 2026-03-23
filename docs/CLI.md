@@ -106,8 +106,73 @@ wp lw-zenadmin widget reset
 # Success: Widget visibility reset to defaults.
 ```
 
+## Menu Management
+
+### `wp lw-zenadmin menu list`
+
+List all discovered admin menu items and their visibility.
+
+```
+$ wp lw-zenadmin menu list
++---------------------+-----------+---------+-------------+-----------+
+| slug                | name      | visible | group       | protected |
++---------------------+-----------+---------+-------------+-----------+
+| index.php           | Dashboard | yes     | core        | yes       |
+| edit.php            | Posts     | yes     | core        | no        |
+| tools.php           | Tools     | yes     | core        | no        |
++---------------------+-----------+---------+-------------+-----------+
+```
+
+Supports `--format=table` (default), `csv`, `json`, `yaml`.
+
+### `wp lw-zenadmin menu show <slug>`
+
+Show a menu item in the admin sidebar.
+
+```bash
+wp lw-zenadmin menu show tools.php
+# Success: Menu 'Tools' (tools.php) is now shown.
+```
+
+### `wp lw-zenadmin menu hide <slug>`
+
+Hide a menu item from the admin sidebar. Protected menus cannot be hidden.
+
+```bash
+wp lw-zenadmin menu hide tools.php
+# Success: Menu 'Tools' (tools.php) is now hidden.
+```
+
+### `wp lw-zenadmin menu show-all`
+
+Show all menu items.
+
+```bash
+wp lw-zenadmin menu show-all
+# Success: All menu items are now visible.
+```
+
+### `wp lw-zenadmin menu hide-all`
+
+Hide all non-protected menu items.
+
+```bash
+wp lw-zenadmin menu hide-all
+# Success: All non-protected menu items are now hidden.
+```
+
+### `wp lw-zenadmin menu reset`
+
+Reset menu visibility to defaults (all visible).
+
+```bash
+wp lw-zenadmin menu reset
+# Success: Menu visibility reset to defaults (all visible).
+```
+
 ## Notes
 
 - `widget list` only shows widgets after the Dashboard page has been visited at least once in the browser (auto-discovery).
-- Use `widget list` to look up widget IDs for `show` and `hide` commands.
-- `widget reset` deletes saved settings and falls back to built-in defaults.
+- `menu list` only shows menus after the admin has been visited at least once in the browser (auto-discovery).
+- Use `widget list` / `menu list` to look up IDs for `show` and `hide` commands.
+- `widget reset` / `menu reset` deletes saved settings and falls back to built-in defaults.

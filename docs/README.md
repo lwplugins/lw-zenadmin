@@ -23,6 +23,23 @@ Controls which widgets appear on the WordPress dashboard, grouped by source.
 - **Sensible defaults** — Core + WooCommerce visible, Third-party hidden
 - **Checkbox UI** — simple table interface on the settings page
 
+### Admin Menu Manager
+
+Controls which admin sidebar menu items are visible.
+
+- **Auto-discovery** — detects all registered top-level and submenu items
+- **Protected menus** — core items (Dashboard, LW Plugins) cannot be hidden
+- **Submenu support** — hide individual submenu items independently
+- **Grouped display** — WordPress Core, WooCommerce, Third-party
+
+### Admin Bar Manager
+
+Controls which admin bar nodes are visible.
+
+- **Auto-discovery** — detects all registered admin bar nodes
+- **Protected nodes** — core items cannot be hidden
+- **Settings UI** — checkbox table on the Admin Bar tab
+
 ### WP-CLI
 
 Full CLI support for toggling features and managing widget visibility.
@@ -47,6 +64,8 @@ Activate the plugin, then go to **LW Plugins → ZenAdmin**.
 |--------|---------|-------------|
 | `notices_enabled` | `true` | Enable/disable the notice collector |
 | `widgets_enabled` | `true` | Enable/disable the widget manager |
+| `menu_enabled` | `false` | Enable/disable the admin menu manager |
+| `adminbar_enabled` | `false` | Enable/disable the admin bar manager |
 
 Widget visibility is stored separately (`lw_zenadmin_widget_settings`) and can be managed from the admin UI or CLI.
 

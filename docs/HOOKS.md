@@ -16,6 +16,8 @@ WordPress hooks used by the plugin.
 | `admin_head` | -9999 | `NoticeCollector` | Early CSS to hide notices before JS loads |
 | `admin_footer` | 10 | `NoticePanel` | Render sidebar panel HTML |
 | `wp_dashboard_setup` | 999 | `WidgetManager` | Filter dashboard widgets |
+| `admin_menu` | 9999 | `MenuManager` | Discover and filter admin menus |
+| `wp_before_admin_bar_render` | 9999 | `AdminBarManager` | Discover and filter admin bar nodes |
 | `admin_head` | 10 | `NoticeManager` | Isolate notices on LW plugin pages |
 | `admin_notices` | -9999 | `NoticeManager` | Open notice wrapper div |
 | `admin_notices` | PHP_INT_MAX | `NoticeManager` | Close notice wrapper div |
