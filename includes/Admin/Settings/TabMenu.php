@@ -139,7 +139,7 @@ final class TabMenu implements TabInterface {
 	 * @param array<string>|false                              $settings Saved settings.
 	 */
 	private function render_menu_row( string $slug, array $data, array|false $settings ): void {
-		$is_sub      = $data['is_sub'] ?? false;
+		$is_sub      = $data['is_sub'];
 		$is_protect  = $this->is_row_protected( $slug );
 		$visible     = $is_protect ? true : MenuManager::is_menu_visible( $slug, $settings );
 		$title       = $is_sub ? '— ' . $data['title'] : $data['title'];

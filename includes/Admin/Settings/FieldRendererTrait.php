@@ -24,7 +24,7 @@ trait FieldRendererTrait {
 	 */
 	protected function render_checkbox_field( array $args ): void {
 		$name  = $args['name'];
-		$label = $args['label'] ?? '';
+		$label = $args['label'];
 		$desc  = $args['description'] ?? '';
 		$value = Options::get( $name );
 

@@ -138,7 +138,7 @@ final class TabAdminBar implements TabInterface {
 	 * @param array<string>|false                                $settings Saved settings.
 	 */
 	private function render_node_row( string $node_id, array $data, array|false $settings ): void {
-		$is_sub     = $data['is_sub'] ?? false;
+		$is_sub     = $data['is_sub'];
 		$is_protect = CoreAdminBarItems::is_protected( $node_id );
 		$visible    = $is_protect ? true : AdminBarManager::is_node_visible( $node_id, $settings );
 		$title      = $is_sub ? '— ' . $data['title'] : $data['title'];
@@ -169,7 +169,7 @@ final class TabAdminBar implements TabInterface {
 	/**
 	 * Group nodes by source with children nested under parents.
 	 *
-	 * @param array<string, array{title: string, parent: string}> $discovered All discovered nodes.
+	 * @param array<string, array{title: string, parent?: string}> $discovered All discovered nodes.
 	 * @return array<string, array{label: string, items: array<string, array{title: string, parent: string, is_sub: bool}>}>
 	 */
 	private function group_nodes( array $discovered ): array {

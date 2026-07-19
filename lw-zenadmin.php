@@ -63,4 +63,9 @@ function lw_zenadmin(): Plugin {
 }
 
 // Initialize the plugin.
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\lw_zenadmin' );
+add_action(
+	'plugins_loaded',
+	static function (): void {
+		lw_zenadmin();
+	}
+);
