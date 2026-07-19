@@ -17,3 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+
+// A hand-rolled WP_Admin_Bar test double: WordPress core's real class isn't
+// available in this WordPress-free environment, and the wordpress-stubs
+// package (used only by PHPStan) declares get_nodes() `final`, which would
+// block subclassing it for a test fixture instead.
+require_once __DIR__ . '/Fixtures/WpAdminBarFake.php';
