@@ -66,6 +66,22 @@ trait MenuGrouperTrait {
 			}
 		}
 
+		// A submenu whose parent slug is absent from the discovered data (e.g.
+		// stale/older discovery data, or a parent menu that has since
+		// disappeared) is never visited by the loop above. List it under
+		// "third_party" as a sub-item instead of silently dropping it, so it
+		// stays manageable in the settings UI.
+		foreach ( $children as $sub_key => $sub_data ) {
+			$parent_slug = explode( '::', $sub_key, 2 )[0];
+
+			if ( isset( $parents[ $parent_slug ] ) ) {
+				continue;
+			}
+
+			$sub_data['is_sub']                         = true;
+			$groups['third_party']['items'][ $sub_key ] = $sub_data;
+		}
+
 		return $groups;
 	}
 }
