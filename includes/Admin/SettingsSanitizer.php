@@ -32,7 +32,7 @@ final class SettingsSanitizer {
 		$sanitized = [];
 		$post_data = array_map( 'sanitize_text_field', $raw );
 
-		foreach ( $defaults as $key => $default_val ) {
+		foreach ( array_keys( $defaults ) as $key ) {
 			$sanitized[ $key ] = ! empty( $post_data[ $key ] );
 		}
 
@@ -48,8 +48,8 @@ final class SettingsSanitizer {
 	public static function sanitize_widget_settings( array $raw ): array {
 		$enabled = [];
 
-		foreach ( array_map( 'sanitize_key', $raw ) as $widget_id ) {
-			$enabled[] = sanitize_key( $widget_id );
+		foreach ( $raw as $widget_id ) {
+			$enabled[] = sanitize_key( (string) $widget_id );
 		}
 
 		return $enabled;
