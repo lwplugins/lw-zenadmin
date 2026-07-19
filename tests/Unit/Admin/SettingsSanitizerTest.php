@@ -81,6 +81,16 @@ final class SettingsSanitizerTest extends MonkeyTestCase {
 		$this->assertSame( [ 'dashboard_widget', '42' ], $result );
 	}
 
+	/**
+	 * A hand-crafted POST can nest an array under lw_zenadmin_widgets[]. Casting
+	 * one to string raises "Array to string conversion" and persists "array".
+	 */
+	public function test_sanitize_widget_settings_skips_non_scalar_input(): void {
+		$result = SettingsSanitizer::sanitize_widget_settings( [ 'dashboard_activity', [ 'nested' ] ] );
+
+		$this->assertSame( [ 'dashboard_activity' ], $result );
+	}
+
 	public function test_sanitize_menu_settings_returns_empty_array_for_empty_submission(): void {
 		$this->assertSame( [], SettingsSanitizer::sanitize_menu_settings( [] ) );
 	}

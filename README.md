@@ -2,7 +2,7 @@
 
 Clean up your WordPress admin — notices sidebar, dashboard widgets, admin menu, and admin bar manager.
 
-[![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://php.net)
+[![PHP](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)](https://php.net)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org)
 [![License](https://img.shields.io/badge/License-GPL--2.0-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 

@@ -58,6 +58,9 @@ jobs:
           rsync -av --exclude='.git' --exclude='.github' --exclude='dist' \
             --exclude='builds' --exclude='composer.json' --exclude='composer.lock' \
             --exclude='phpcs.xml.dist' --exclude='node_modules' --exclude='.gitignore' \
+            --exclude='tests' --exclude='docs' --exclude='.claude' --exclude='.superpowers' \
+            --exclude='phpstan.neon.dist' --exclude='phpstan-baseline.neon' \
+            --exclude='phpstan-bootstrap.php' --exclude='phpunit.xml.dist' \
             --exclude='*.log' . dist/lw-zenadmin/
           cd dist && zip -r "lw-zenadmin-${VERSION}.zip" lw-zenadmin/
 

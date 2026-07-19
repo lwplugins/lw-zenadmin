@@ -74,7 +74,10 @@ trait MenuGrouperTrait {
 		foreach ( $children as $sub_key => $sub_data ) {
 			$parent_slug = explode( '::', $sub_key, 2 )[0];
 
-			if ( isset( $parents[ $parent_slug ] ) ) {
+			// array_key_exists, not isset: a null value in the stored option
+			// would otherwise make the parent look absent and list the child
+			// in both its parent's group and third_party.
+			if ( array_key_exists( $parent_slug, $parents ) ) {
 				continue;
 			}
 

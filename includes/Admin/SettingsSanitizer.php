@@ -49,6 +49,12 @@ final class SettingsSanitizer {
 		$enabled = [];
 
 		foreach ( $raw as $widget_id ) {
+			// A hand-crafted POST can nest arrays here; casting one to string
+			// would emit a warning and persist the useless value "Array".
+			if ( ! is_scalar( $widget_id ) ) {
+				continue;
+			}
+
 			$enabled[] = sanitize_key( (string) $widget_id );
 		}
 
