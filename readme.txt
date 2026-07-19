@@ -3,7 +3,7 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,11 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.3.0 =
+* Fix: Submenu items whose parent menu was missing from the discovered data no longer disappear from the settings screen — they are listed under Third-party
+* Change: Minimum PHP requirement lowered from 8.1 to 8.0
+* New: Test suite, PHPStan level 5 static analysis, and a CI workflow
 
 = 1.2.3 =
 * New: LW Site Manager integration - admin cleanup abilities for AI agents

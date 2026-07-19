@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.0] - 2026-07-19
+
+### Fixed
+- Submenu items whose parent menu was missing from the discovered data were silently dropped from the settings screen, leaving them unmanageable. They are now listed under Third-party.
+
+### Changed
+- Minimum PHP requirement lowered from 8.1 to 8.0.
+
+### Added
+- Test suite (PHPUnit + Brain Monkey), PHPStan level 5 with an empty baseline, and a CI workflow running code style, static analysis and tests on PHP 8.1–8.5.
+
 ## [1.2.3] - 2026-03-22
 
 ### Added
