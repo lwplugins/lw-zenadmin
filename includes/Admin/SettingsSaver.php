@@ -64,17 +64,10 @@ final class SettingsSaver {
 	 * @return void
 	 */
 	private static function save_options(): void {
-		$defaults  = Options::get_defaults();
-		$sanitized = [];
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized on next line.
-		$raw       = isset( $_POST['lw_zenadmin_options'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_options'] ) : [];
-		$post_data = array_map( 'sanitize_text_field', $raw );
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::sanitize_options().
+		$raw = isset( $_POST['lw_zenadmin_options'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_options'] ) : [];
 
-		foreach ( $defaults as $key => $default_val ) {
-			$sanitized[ $key ] = ! empty( $post_data[ $key ] );
-		}
-
-		Options::save( $sanitized );
+		Options::save( SettingsSanitizer::sanitize_options( $raw ) );
 	}
 
 	/**
@@ -83,18 +76,10 @@ final class SettingsSaver {
 	 * @return void
 	 */
 	private static function save_widget_settings(): void {
-		$enabled = [];
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::sanitize_widget_settings().
+		$raw_widgets = isset( $_POST['lw_zenadmin_widgets'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_widgets'] ) : [];
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in maybe_save().
-		$raw_widgets = isset( $_POST['lw_zenadmin_widgets'] )
-			? array_map( 'sanitize_key', wp_unslash( (array) $_POST['lw_zenadmin_widgets'] ) ) // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			: [];
-
-		foreach ( $raw_widgets as $widget_id ) {
-			$enabled[] = sanitize_key( $widget_id );
-		}
-
-		Options::save_widget_settings( $enabled );
+		Options::save_widget_settings( SettingsSanitizer::sanitize_widget_settings( $raw_widgets ) );
 	}
 
 	/**
@@ -108,17 +93,10 @@ final class SettingsSaver {
 			return;
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in maybe_save().
-		$raw_menus = isset( $_POST['lw_zenadmin_menus'] )
-			? wp_unslash( (array) $_POST['lw_zenadmin_menus'] ) // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			: [];
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::sanitize_menu_settings().
+		$raw_menus = isset( $_POST['lw_zenadmin_menus'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_menus'] ) : [];
 
-		$visible = [];
-		foreach ( $raw_menus as $slug ) {
-			$visible[] = sanitize_text_field( (string) $slug );
-		}
-
-		Options::save_menu_settings( $visible );
+		Options::save_menu_settings( SettingsSanitizer::sanitize_menu_settings( $raw_menus ) );
 	}
 
 	/**
@@ -131,16 +109,9 @@ final class SettingsSaver {
 			return;
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in maybe_save().
-		$raw_nodes = isset( $_POST['lw_zenadmin_adminbar'] )
-			? wp_unslash( (array) $_POST['lw_zenadmin_adminbar'] ) // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			: [];
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::sanitize_adminbar_settings().
+		$raw_nodes = isset( $_POST['lw_zenadmin_adminbar'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_adminbar'] ) : [];
 
-		$visible = [];
-		foreach ( $raw_nodes as $node_id ) {
-			$visible[] = sanitize_text_field( (string) $node_id );
-		}
-
-		Options::save_adminbar_settings( $visible );
+		Options::save_adminbar_settings( SettingsSanitizer::sanitize_adminbar_settings( $raw_nodes ) );
 	}
 }
