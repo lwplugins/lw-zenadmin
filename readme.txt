@@ -2,8 +2,8 @@
 Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
-Tested up to: 6.7
-Stable tag: 1.3.0
+Tested up to: 7.1
+Stable tag: 1.3.1
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,10 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.3.1 =
+* Fix: Added uninstall.php — deleting the plugin now removes all lw_zenadmin_* options (settings, discovered widgets/menus/admin-bar items).
+* Update: Tested up to WordPress 7.1.
 
 = 1.3.0 =
 * Fix: Submenu items whose parent menu was missing from the discovered data no longer disappear from the settings screen — they are listed under Third-party

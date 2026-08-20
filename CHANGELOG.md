@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1] - 2026-08-20
+
+### Fixed
+- Added `uninstall.php`: deleting the plugin now removes every `lw_zenadmin_*` option (settings, discovered widgets / menus / admin-bar items). Previously they were left behind.
+
+### Changed
+- Tested up to WordPress 7.1.
+
 ## [1.3.0] - 2026-07-19
 
 ### Fixed
