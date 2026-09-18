@@ -18,7 +18,7 @@
 		$trigger  = $( '#wp-admin-bar-lw-zenadmin' ),
 		$badge    = $trigger.find( '.lw-zenadmin-badge' ),
 		$count    = $badge.find( '.update-count' ),
-		selectors = 'div.notice, div.updated, div.error, div.update-nag',
+		selectors = 'div.notice, div.updated, div.error, div.update-nag, div[class*="review-notice"]',
 		collected = 0;
 
 	/**

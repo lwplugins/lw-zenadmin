@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.3] - 2026-09-18
+
+### Fixed
+- Review-request banners that skip the standard `notice` / `updated` / `error` / `update-nag` classes (any `div` whose class contains `review-notice`, e.g. Reno Product Gallery's `sp-woogs-review-notice`) are now collected into the Notices panel and hidden early, instead of staying on the page
+
 ## [1.3.2] - 2026-09-06
 
 ### Fixed

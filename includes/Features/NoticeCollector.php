@@ -88,10 +88,12 @@ final class NoticeCollector {
 			. '#wpbody-content > .updated:not(.lw-notice),'
 			. '#wpbody-content > .error:not(.lw-notice),'
 			. '#wpbody-content > .update-nag:not(.lw-notice),'
+			. '#wpbody-content > div[class*="review-notice"]:not(.lw-notice),'
 			. '.wrap > .notice:not(.lw-notice),'
 			. '.wrap > .updated:not(.lw-notice),'
 			. '.wrap > .error:not(.lw-notice),'
-			. '.wrap > .update-nag:not(.lw-notice)'
+			. '.wrap > .update-nag:not(.lw-notice),'
+			. '.wrap > div[class*="review-notice"]:not(.lw-notice)'
 			. '{display:none!important}'
 			. '</style>';
 	}
