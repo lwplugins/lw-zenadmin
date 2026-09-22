@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4] - 2026-09-22
+
+### Fixed
+- Admin bar items nested two or more levels deep (e.g. the account menu's user info and Log Out) are now listed on the Admin Bar tab, indented by level. Previously they had no checkbox, and saving the tab hid the unprotected ones with no way to restore them
+- Saving the settings no longer hides an admin bar item that the submitted form did not show; it keeps its current visibility
+- A numeric admin bar item ID no longer breaks the Admin Bar tab
+
 ## [1.3.3] - 2026-09-18
 
 ### Fixed

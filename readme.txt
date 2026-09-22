@@ -3,7 +3,7 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,11 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.3.4 =
+* Fix: admin bar items nested two or more levels deep (e.g. the account menu's user info and Log Out) are now listed on the Admin Bar tab, indented by level. Previously they had no checkbox, and saving the tab hid the unprotected ones with no way to restore them
+* Fix: saving the settings no longer hides an admin bar item that the submitted form did not show; it keeps its current visibility
+* Fix: a numeric admin bar item ID no longer breaks the Admin Bar tab
 
 = 1.3.3 =
 * Fix: review-request banners that skip the standard notice classes (any div whose class contains "review-notice", e.g. Reno Product Gallery) are now collected into the Notices panel
