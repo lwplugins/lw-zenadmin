@@ -110,4 +110,49 @@ final class SettingsSanitizerTest extends MonkeyTestCase {
 
 		$this->assertSame( [ '7' ], $result );
 	}
+
+	/**
+	 * Issue #4, defence in depth: the visible list is rebuilt from the
+	 * checked boxes, so a discovered node the submitted form never rendered
+	 * must keep its saved state instead of being hidden by the save.
+	 *
+	 * @dataProvider provide_unrendered_node_cases
+	 *
+	 * @param array<int, string>  $checked  Checked node IDs.
+	 * @param array<int, string>  $rendered Node IDs the form rendered.
+	 * @param array<string>|false $previous Saved visible list.
+	 * @param array<int, string>  $expected Visible list to persist.
+	 */
+	public function test_keep_unrendered_adminbar_nodes_preserves_the_state_of_nodes_the_form_never_showed(
+		array $checked,
+		array $rendered,
+		array|false $previous,
+		array $expected
+	): void {
+		$discovered = [ 'search', 'comments', 'user-info' ];
+
+		$result = SettingsSanitizer::keep_unrendered_adminbar_nodes( $checked, $rendered, $discovered, $previous );
+
+		$this->assertSame( $expected, $result );
+	}
+
+	/**
+	 * @return array<string, array{0: array<int, string>, 1: array<int, string>, 2: array<string>|false, 3: array<int, string>}>
+	 */
+	public static function provide_unrendered_node_cases(): array {
+		return [
+			'unrendered, saved visible -> stays visible'  => [ [ 'search' ], [ 'search', 'comments' ], [ 'search', 'comments', 'user-info' ], [ 'search', 'user-info' ] ],
+			'unrendered, never saved -> stays visible'    => [ [ 'search' ], [ 'search', 'comments' ], false, [ 'search', 'user-info' ] ],
+			'unrendered, saved hidden -> stays hidden'    => [ [ 'search' ], [ 'search', 'comments' ], [ 'search', 'comments' ], [ 'search' ] ],
+			'rendered and unchecked -> hidden'            => [ [], [ 'search', 'comments', 'user-info' ], false, [] ],
+			'rendered and checked -> listed once'         => [ [ 'user-info' ], [ 'search', 'comments', 'user-info' ], [ 'user-info' ], [ 'user-info' ] ],
+			'no table rendered at all -> nothing changes' => [ [], [], [ 'comments' ], [ 'comments' ] ],
+		];
+	}
+
+	public function test_keep_unrendered_adminbar_nodes_skips_non_scalar_rendered_entries(): void {
+		$result = SettingsSanitizer::keep_unrendered_adminbar_nodes( [], [ [ 'search' ], 'comments' ], [ 'comments' ], [ 'comments' ] );
+
+		$this->assertSame( [], $result );
+	}
 }

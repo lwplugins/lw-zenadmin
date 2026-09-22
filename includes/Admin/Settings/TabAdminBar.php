@@ -99,7 +99,7 @@ final class TabAdminBar implements TabInterface {
 		}
 
 		$settings = Options::get_adminbar_settings();
-		$groups   = $this->group_nodes( $discovered );
+		$groups   = ( new AdminBarNodeGrouper() )->group_nodes( $discovered );
 
 		?>
 		<h3><?php esc_html_e( 'Admin Bar Visibility', 'lw-zenadmin' ); ?></h3>
@@ -122,7 +122,7 @@ final class TabAdminBar implements TabInterface {
 						</th>
 					</tr>
 					<?php foreach ( $group['items'] as $node_id => $data ) : ?>
-						<?php $this->render_node_row( $node_id, $data, $settings ); ?>
+						<?php $this->render_node_row( (string) $node_id, $data, $settings ); ?>
 					<?php endforeach; ?>
 				<?php endforeach; ?>
 			</tbody>
@@ -131,18 +131,21 @@ final class TabAdminBar implements TabInterface {
 	}
 
 	/**
-	 * Render a single node row.
+	 * Render a single node row, indented one step per hierarchy level.
 	 *
-	 * @param string                                             $node_id  Node identifier.
-	 * @param array{title: string, parent: string, is_sub: bool} $data     Node data.
-	 * @param array<string>|false                                $settings Saved settings.
+	 * Besides the checkbox, every row posts a hidden "rendered" marker, so the
+	 * save can tell an unchecked node from one this form never showed.
+	 *
+	 * @param string               $node_id  Node identifier.
+	 * @param array<string, mixed> $data     Node row data (title, depth).
+	 * @param array<string>|false  $settings Saved settings.
 	 */
 	private function render_node_row( string $node_id, array $data, array|false $settings ): void {
-		$is_sub     = $data['is_sub'];
+		$depth      = (int) ( $data['depth'] ?? 0 );
 		$is_protect = CoreAdminBarItems::is_protected( $node_id );
 		$visible    = $is_protect ? true : AdminBarManager::is_node_visible( $node_id, $settings );
-		$title      = $is_sub ? '— ' . $data['title'] : $data['title'];
-		$style      = $is_sub ? 'padding-left:20px;' : 'font-weight:600;';
+		$title      = str_repeat( '— ', $depth ) . $data['title'];
+		$style      = $depth > 0 ? sprintf( 'padding-left:%dpx;', 20 * $depth ) : 'font-weight:600;';
 
 		?>
 		<tr>
@@ -154,6 +157,7 @@ final class TabAdminBar implements TabInterface {
 					<?php checked( $visible ); ?>
 					<?php disabled( $is_protect ); ?>
 				/>
+				<input type="hidden" name="lw_zenadmin_adminbar_rendered[]" value="<?php echo esc_attr( $node_id ); ?>" />
 			</td>
 			<td style="<?php echo esc_attr( $style ); ?>">
 				<?php echo esc_html( $title ); ?>
@@ -164,55 +168,5 @@ final class TabAdminBar implements TabInterface {
 			<td><code><?php echo esc_html( $node_id ); ?></code></td>
 		</tr>
 		<?php
-	}
-
-	/**
-	 * Group nodes by source with children nested under parents.
-	 *
-	 * @param array<string, array{title: string, parent?: string}> $discovered All discovered nodes.
-	 * @return array<string, array{label: string, items: array<string, array{title: string, parent: string, is_sub: bool}>}>
-	 */
-	private function group_nodes( array $discovered ): array {
-		$groups = [
-			'core'        => [
-				'label' => __( 'WordPress Core', 'lw-zenadmin' ),
-				'items' => [],
-			],
-			'woocommerce' => [
-				'label' => __( 'WooCommerce', 'lw-zenadmin' ),
-				'items' => [],
-			],
-			'third_party' => [
-				'label' => __( 'Third-party', 'lw-zenadmin' ),
-				'items' => [],
-			],
-		];
-
-		$parents  = [];
-		$children = [];
-
-		foreach ( $discovered as $node_id => $data ) {
-			$parent = $data['parent'] ?? '';
-			if ( '' === $parent || ! isset( $discovered[ $parent ] ) ) {
-				$parents[ $node_id ] = $data;
-			} else {
-				$children[ $node_id ] = $data;
-			}
-		}
-
-		foreach ( $parents as $node_id => $data ) {
-			$group                                 = CoreAdminBarItems::get_group( $node_id );
-			$data['is_sub']                        = false;
-			$groups[ $group ]['items'][ $node_id ] = $data;
-
-			foreach ( $children as $child_id => $child_data ) {
-				if ( ( $child_data['parent'] ?? '' ) === $node_id ) {
-					$child_data['is_sub']                   = true;
-					$groups[ $group ]['items'][ $child_id ] = $child_data;
-				}
-			}
-		}
-
-		return $groups;
 	}
 }

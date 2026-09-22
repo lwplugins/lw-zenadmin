@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace LightweightPlugins\ZenAdmin\Admin;
 
+use LightweightPlugins\ZenAdmin\Features\AdminBarManager;
 use LightweightPlugins\ZenAdmin\Options;
 
 /**
@@ -88,6 +89,43 @@ final class SettingsSanitizer {
 
 		foreach ( $raw as $node_id ) {
 			$visible[] = sanitize_text_field( (string) $node_id );
+		}
+
+		return $visible;
+	}
+
+	/**
+	 * Carry over the saved state of admin bar nodes the submitted form never rendered.
+	 *
+	 * The visible list is rebuilt from the checked boxes, so a discovered node
+	 * without a row in the submitted form (discovered after the page was
+	 * rendered, a truncated POST, or a node the tab failed to list) would
+	 * otherwise be hidden by the save with no way to see why. Such a node
+	 * keeps its current visibility instead.
+	 *
+	 * @param array<int, string>  $visible        Sanitized checked node IDs.
+	 * @param array<int, mixed>   $raw_rendered   Raw (unslashed) `lw_zenadmin_adminbar_rendered` submission.
+	 * @param array<int, string>  $discovered_ids All discovered node IDs.
+	 * @param array<string>|false $previous       Saved visible list, false if never saved.
+	 * @return array<int, string>
+	 */
+	public static function keep_unrendered_adminbar_nodes( array $visible, array $raw_rendered, array $discovered_ids, array|false $previous ): array {
+		$rendered = [];
+
+		foreach ( $raw_rendered as $node_id ) {
+			if ( is_scalar( $node_id ) ) {
+				$rendered[ sanitize_text_field( (string) $node_id ) ] = true;
+			}
+		}
+
+		foreach ( $discovered_ids as $node_id ) {
+			if ( isset( $rendered[ $node_id ] ) || in_array( $node_id, $visible, true ) ) {
+				continue;
+			}
+
+			if ( AdminBarManager::is_node_visible( $node_id, $previous ) ) {
+				$visible[] = $node_id;
+			}
 		}
 
 		return $visible;

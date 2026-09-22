@@ -105,13 +105,24 @@ final class SettingsSaver {
 	 * @return void
 	 */
 	private static function save_adminbar_settings(): void {
-		if ( empty( Options::get_discovered_adminbar() ) ) {
+		$discovered = Options::get_discovered_adminbar();
+
+		if ( empty( $discovered ) ) {
 			return;
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::sanitize_adminbar_settings().
 		$raw_nodes = isset( $_POST['lw_zenadmin_adminbar'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_adminbar'] ) : [];
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified in maybe_save(). Sanitized in SettingsSanitizer::keep_unrendered_adminbar_nodes().
+		$raw_rendered = isset( $_POST['lw_zenadmin_adminbar_rendered'] ) ? wp_unslash( (array) $_POST['lw_zenadmin_adminbar_rendered'] ) : [];
 
-		Options::save_adminbar_settings( SettingsSanitizer::sanitize_adminbar_settings( $raw_nodes ) );
+		Options::save_adminbar_settings(
+			SettingsSanitizer::keep_unrendered_adminbar_nodes(
+				SettingsSanitizer::sanitize_adminbar_settings( $raw_nodes ),
+				$raw_rendered,
+				array_map( 'strval', array_keys( $discovered ) ),
+				Options::get_adminbar_settings()
+			)
+		);
 	}
 }
