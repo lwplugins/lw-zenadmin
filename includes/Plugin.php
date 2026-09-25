@@ -18,6 +18,7 @@ use LightweightPlugins\ZenAdmin\Features\MenuManager;
 use LightweightPlugins\ZenAdmin\Features\NoticeCollector;
 use LightweightPlugins\ZenAdmin\Features\NoticePanel;
 use LightweightPlugins\ZenAdmin\Features\WidgetManager;
+use LightweightPlugins\ZenAdmin\Rest\Admin\Routes as AdminRoutes;
 use LightweightPlugins\ZenAdmin\SiteManager\Integration as SiteManagerIntegration;
 
 /**
@@ -33,6 +34,7 @@ final class Plugin {
 		$this->init_features();
 		$this->init_admin_bar();
 		$this->init_admin();
+		$this->init_rest();
 		$this->init_cli();
 		$this->init_site_manager();
 	}
@@ -90,6 +92,15 @@ final class Plugin {
 		if ( is_admin() ) {
 			new SettingsPage();
 		}
+	}
+
+	/**
+	 * Register the admin REST routes (REST requests are not is_admin()).
+	 *
+	 * @return void
+	 */
+	private function init_rest(): void {
+		AdminRoutes::register();
 	}
 
 	/**

@@ -155,4 +155,72 @@ final class SettingsSanitizerTest extends MonkeyTestCase {
 
 		$this->assertSame( [], $result );
 	}
+
+	/**
+	 * Only the changed items are submitted; every other discovered item keeps
+	 * its effective visibility (the classic "rendered marker" rule), so an
+	 * item discovered after the screen loaded is never hidden by a save.
+	 *
+	 * @dataProvider provide_merge_cases
+	 *
+	 * @param array<string, bool> $changes  Submitted changes.
+	 * @param array<int, string>  $visible  Currently visible IDs.
+	 * @param array<int, string>  $expected Visible list to persist.
+	 */
+	public function test_merge_visibility_applies_changes_and_keeps_everything_else( array $changes, array $visible, array $expected ): void {
+		$result = SettingsSanitizer::merge_visibility(
+			$changes,
+			[ 'search', 'comments', 'user-info' ],
+			static fn ( string $id ): bool => in_array( $id, $visible, true ),
+			static fn (): bool => false
+		);
+
+		$this->assertSame( $expected, $result );
+	}
+
+	/**
+	 * @return array<string, array{0: array<string, bool>, 1: array<int, string>, 2: array<int, string>}>
+	 */
+	public static function provide_merge_cases(): array {
+		return [
+			'nothing changed -> current state'     => [ [], [ 'comments' ], [ 'comments' ] ],
+			'hide one visible item'                => [ [ 'comments' => false ], [ 'search', 'comments' ], [ 'search' ] ],
+			'show one hidden item'                 => [ [ 'user-info' => true ], [ 'search' ], [ 'search', 'user-info' ] ],
+			'unmentioned hidden item stays hidden' => [ [ 'search' => true ], [], [ 'search' ] ],
+			'showing a visible item lists it once' => [ [ 'search' => true ], [ 'search' ], [ 'search' ] ],
+		];
+	}
+
+	public function test_merge_visibility_leaves_protected_items_out_of_the_list(): void {
+		$result = SettingsSanitizer::merge_visibility(
+			[ 'logout' => true ],
+			[ 'logout', 'search' ],
+			static fn (): bool => true,
+			static fn ( string $id ): bool => 'logout' === $id
+		);
+
+		$this->assertSame( [ 'search' ], $result );
+	}
+
+	public function test_merge_visibility_drops_ids_that_are_no_longer_discovered(): void {
+		$result = SettingsSanitizer::merge_visibility(
+			[ 'gone' => true ],
+			[ 'search' ],
+			static fn (): bool => true,
+			static fn (): bool => false
+		);
+
+		$this->assertSame( [ 'search' ], $result );
+	}
+
+	public function test_merge_visibility_stringifies_numeric_ids(): void {
+		$result = SettingsSanitizer::merge_visibility(
+			[ '7' => true ],
+			[ 7 ],
+			static fn (): bool => false,
+			static fn (): bool => false
+		);
+
+		$this->assertSame( [ '7' ], $result );
+	}
 }
