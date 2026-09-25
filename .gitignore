@@ -6,3 +6,13 @@ composer.lock
 .phpunit.cache/
 .phpunit.result.cache
 composer.phar
+/dist/
+
+# Internal working notes (agent reports, review packages)
+/.superpowers/
+
+# React admin tooling (build/ is committed, never ignore it)
+/node_modules/
+
+# Local-only agent planning docs
+/docs/superpowers/
