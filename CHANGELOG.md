@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.5] - 2026-09-25
+
+### Fixed
+- Notices from themes and other plugins (for example a theme's purchase-code or recommended-plugins notice) could show on the LW ZenAdmin screen. They are now kept off every LW Plugins screen, whatever their markup.
+- The Notices sidebar no longer collects notices on LW Plugins screens (it would have shown the ones kept off the page); it works as before everywhere else.
+
 ## [1.3.4] - 2026-09-22
 
 ### Fixed

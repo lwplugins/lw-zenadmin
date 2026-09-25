@@ -3,7 +3,7 @@ Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,10 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.3.5 =
+* Fix: notices from themes and other plugins (for example a theme's purchase-code or recommended-plugins notice) could show on the LW ZenAdmin screen. They are now kept off every LW Plugins screen, whatever their markup.
+* Fix: the Notices sidebar no longer collects notices on LW Plugins screens (it would have shown the ones kept off the page); it works as before everywhere else.
 
 = 1.3.4 =
 * Fix: admin bar items nested two or more levels deep (e.g. the account menu's user info and Log Out) are now listed on the Admin Bar tab, indented by level. Previously they had no checkbox, and saving the tab hid the unprotected ones with no way to restore them
