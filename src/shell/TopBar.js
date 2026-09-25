@@ -42,7 +42,13 @@ export default function TopBar( { title, store } ) {
 						onClick={ () => store.save() }
 					>
 						<kbd>{ displayShortcut.primary( 's' ) }</kbd>
-						{ __( 'Save changes', 'lw-zenadmin' ) }
+						{ /* The short label replaces the long one on narrow screens. */ }
+						<span className="lw-admin-save__full">
+							{ __( 'Save changes', 'lw-zenadmin' ) }
+						</span>
+						<span className="lw-admin-save__short">
+							{ __( 'Save', 'lw-zenadmin' ) }
+						</span>
 					</Button>
 				</div>
 			) }

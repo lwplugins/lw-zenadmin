@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LW ZenAdmin 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lw-zenadmin\n"
-"POT-Creation-Date: 2026-09-25T20:28:47+00:00\n"
+"POT-Creation-Date: 2026-09-25T20:32:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LW Plugins <info@lwplugins.com>\n"
@@ -314,6 +314,10 @@ msgstr "Elvetés"
 #: build/index.js:1
 msgid "Save changes"
 msgstr "Változtatások mentése"
+
+#: build/index.js:1
+msgid "Save"
+msgstr "Mentés"
 
 #: build/index.js:1
 msgid "On"

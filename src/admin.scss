@@ -308,6 +308,10 @@ $canvas: var(--wpds-color-background-surface-neutral-weak, #f6f7f7);
 .lw-admin-save {
 	gap: $gap-sm;
 
+	&__short {
+		display: none;
+	}
+
 	kbd {
 		padding: 1px 5px;
 		border-radius: 3px;
@@ -630,6 +634,15 @@ $canvas: var(--wpds-color-background-surface-neutral-weak, #f6f7f7);
 @media (max-width: 600px) {
 	.lw-admin-topbar {
 		top: 0;
+	}
+
+	// Short "Save" so the section title keeps room next to Discard.
+	.lw-admin-save__full {
+		display: none;
+	}
+
+	.lw-admin-save__short {
+		display: inline;
 	}
 }
 
