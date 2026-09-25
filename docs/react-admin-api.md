@@ -102,8 +102,14 @@ Rules carried over from the classic tabs:
   every `lw-*` slug, and a submenu when both its parent and its slug are
   protected; admin bar — `my-account`, `top-secondary`, `user-actions`,
   `logout`; widgets — none.
-- Titles are plain text (tags were stripped at discovery); the UI renders them
-  as text.
+- Titles are plain text, cleaned at discovery (`Features\PlainTitle`): count
+  badges (`awaiting-mod`, `update-plugins`, `count-N`, `plugin-count`, …),
+  hidden alternates (`hide-if-js`) and `<kbd>` hints are dropped with their
+  content; screen-reader text is used only when nothing readable is left
+  (icon-only admin bar nodes), minus its numbers. A title stored before the
+  cleaner existed is rewritten on the next load that discovers it (any admin
+  page for menus / admin bar, the Dashboard for widgets). The UI renders
+  titles as text.
 
 ## POST (partial, validated, atomic)
 

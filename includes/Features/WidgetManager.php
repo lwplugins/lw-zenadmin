@@ -59,9 +59,8 @@ final class WidgetManager {
 						continue;
 					}
 
-					$title = isset( $widget['title'] )
-						? wp_strip_all_tags( $widget['title'] )
-						: $widget_id;
+					$title = PlainTitle::from_html( (string) ( $widget['title'] ?? '' ) );
+					$title = '' !== $title ? $title : (string) $widget_id;
 
 					if ( ! isset( $discovered[ $widget_id ] ) || $discovered[ $widget_id ] !== $title ) {
 						$discovered[ $widget_id ] = $title;

@@ -48,7 +48,8 @@ final class AdminBarManager {
 		}
 
 		foreach ( $nodes as $node ) {
-			$title = ! empty( $node->title ) ? wp_strip_all_tags( $node->title ) : $node->id;
+			$title = PlainTitle::from_html( (string) ( $node->title ?? '' ) );
+			$title = '' !== $title ? $title : $node->id;
 
 			if ( ! isset( $discovered[ $node->id ] ) || $discovered[ $node->id ]['title'] !== $title ) {
 				$discovered[ $node->id ] = [

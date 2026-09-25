@@ -58,7 +58,6 @@ final class AdminBarManagerTest extends MonkeyTestCase {
 	 */
 	public function test_filter_nodes_keeps_a_protected_node_visible_when_settings_hide_everything(): void {
 		Functions\when( 'add_action' )->justReturn( null );
-		Functions\when( 'wp_strip_all_tags' )->alias( static fn ( $text ) => $text );
 		Functions\when( 'get_option' )->alias(
 			static function ( string $name, $default = false ) {
 				if ( Options::ADMINBAR_SETTINGS === $name ) {

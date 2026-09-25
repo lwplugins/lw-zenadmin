@@ -48,7 +48,8 @@ final class MenuManager {
 			}
 
 			$slug  = $item[2];
-			$title = ! empty( $item[0] ) ? wp_strip_all_tags( $item[0] ) : $slug;
+			$title = PlainTitle::from_html( (string) ( $item[0] ?? '' ) );
+			$title = '' !== $title ? $title : $slug;
 			$icon  = $item[6] ?? '';
 
 			if ( ! isset( $discovered[ $slug ] ) || $discovered[ $slug ]['title'] !== $title ) {
@@ -101,7 +102,8 @@ final class MenuManager {
 			}
 
 			$sub_key   = $parent_slug . '::' . $sub[2];
-			$sub_title = ! empty( $sub[0] ) ? wp_strip_all_tags( $sub[0] ) : $sub[2];
+			$sub_title = PlainTitle::from_html( (string) ( $sub[0] ?? '' ) );
+			$sub_title = '' !== $sub_title ? $sub_title : $sub[2];
 
 			if ( ! isset( $discovered[ $sub_key ] ) || $discovered[ $sub_key ]['title'] !== $sub_title ) {
 				$discovered[ $sub_key ] = [

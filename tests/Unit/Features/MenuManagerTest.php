@@ -61,7 +61,6 @@ final class MenuManagerTest extends MonkeyTestCase {
 	 */
 	public function test_filter_menus_keeps_a_protected_item_visible_when_settings_hide_everything(): void {
 		Functions\when( 'add_action' )->justReturn( null );
-		Functions\when( 'wp_strip_all_tags' )->alias( static fn ( $text ) => $text );
 		Functions\when( 'get_option' )->alias(
 			static function ( string $name, $default = false ) {
 				if ( Options::MENU_SETTINGS === $name ) {
@@ -86,5 +85,48 @@ final class MenuManagerTest extends MonkeyTestCase {
 		// uncaught error from the remove_menu_page expectation above firing
 		// with the wrong argument) confirms the run completed cleanly.
 		$this->assertNull( ( new MenuManager() )->filter_menus() );
+	}
+
+	/**
+	 * Discovery stores the readable label, not the count badge's text
+	 * (a stored title that differs is rewritten on the next admin load).
+	 */
+	public function test_filter_menus_discovers_titles_without_count_badges(): void {
+		$saved = [];
+
+		Functions\when( 'add_action' )->justReturn( null );
+		Functions\when( 'get_option' )->alias(
+			static function ( string $name, $default = false ) {
+				if ( Options::DISCOVERED_MENUS === $name ) {
+					return [
+						'plugins.php' => [
+							'title' => 'Plugins 4',
+							'icon'  => '',
+						],
+					];
+				}
+				return $default;
+			}
+		);
+		Functions\when( 'update_option' )->alias(
+			static function ( string $name, $value ) use ( &$saved ) {
+				$saved[ $name ] = $value;
+				return true;
+			}
+		);
+
+		$GLOBALS['menu']    = [
+			[ 'Plugins <span class="update-plugins count-4"><span class="plugin-count">4</span></span>', 'activate_plugins', 'plugins.php', '', '', '', '' ],
+		];
+		$GLOBALS['submenu'] = [
+			'plugins.php' => [
+				[ 'Installed Plugins', 'activate_plugins', 'plugins.php' ],
+			],
+		];
+
+		( new MenuManager() )->filter_menus();
+
+		$this->assertSame( 'Plugins', $saved[ Options::DISCOVERED_MENUS ]['plugins.php']['title'] );
+		$this->assertSame( 'Installed Plugins', $saved[ Options::DISCOVERED_MENUS ]['plugins.php::plugins.php']['title'] );
 	}
 }
