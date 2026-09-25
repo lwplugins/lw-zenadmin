@@ -96,7 +96,8 @@ body.lw-zenadmin-screen {
 	background: $page;
 	color: $text;
 
-	svg:not(.lw-admin-mark) {
+	// Zero specificity: any component rule (e.g. the white wordmark bolt) wins.
+	:where(svg:not(.lw-admin-mark)) {
 		fill: currentColor;
 	}
 }
