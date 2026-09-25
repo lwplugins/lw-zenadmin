@@ -24,6 +24,7 @@ export default function NoticesTab( { store } ) {
 		<>
 			<FeatureBar
 				icon={ bell }
+				label={ __( 'Notice Collector', 'lw-zenadmin' ) }
 				checked={ on }
 				onChange={ ( value ) =>
 					store.setOption( 'notices_enabled', value )

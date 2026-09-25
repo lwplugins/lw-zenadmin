@@ -80,6 +80,7 @@ export default function VisibilityTab( { tab, store } ) {
 		<>
 			<FeatureBar
 				icon={ tab.icon }
+				label={ tab.title }
 				checked={ on }
 				onChange={ ( value ) => store.setOption( tab.option, value ) }
 				onTitle={ copy.onTitle }

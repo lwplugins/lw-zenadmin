@@ -12,6 +12,8 @@ import { Icon } from '@wordpress/icons';
  *
  * @param {Object}   props
  * @param {Object}   props.icon     Icon.
+ * @param {string}   props.label    Feature name: the switch's accessible name
+ *                                  (the visible On/Off only tells the state).
  * @param {boolean}  props.checked  Feature on.
  * @param {Function} props.onChange Receives the new boolean.
  * @param {string}   props.onTitle  Headline when on.
@@ -22,6 +24,7 @@ import { Icon } from '@wordpress/icons';
  */
 export default function FeatureBar( {
 	icon,
+	label,
 	checked,
 	onChange,
 	onTitle,
@@ -51,6 +54,7 @@ export default function FeatureBar( {
 							? __( 'On', 'lw-zenadmin' )
 							: __( 'Off', 'lw-zenadmin' )
 					}
+					aria-label={ label }
 					checked={ checked }
 					onChange={ onChange }
 				/>
