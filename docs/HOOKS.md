@@ -9,8 +9,8 @@ WordPress hooks used by the plugin.
 | `plugins_loaded` | 10 | `lw-zenadmin.php` | Plugin initialization |
 | `init` | 10 | `Plugin` | Load textdomain |
 | `admin_menu` | 10 | `SettingsPage` | Register menu page |
-| `admin_init` | 10 | `SettingsSaver` | Handle form submission |
-| `admin_enqueue_scripts` | 10 | `SettingsPage` | Enqueue admin CSS/JS (settings page only) |
+| `admin_enqueue_scripts` | 10 | `SettingsPage` | Enqueue the React admin build (settings page only) |
+| `rest_api_init` | 10 | `Rest\Admin\Routes` | Register `lw-zenadmin/v1/admin/settings` (see [react-admin-api.md](react-admin-api.md)) |
 | `admin_enqueue_scripts` | 10 | `NoticeCollector` | Enqueue panel CSS/JS (all admin pages) |
 | `admin_bar_menu` | 999 | `NoticeCollector` | Add "Notices" button to admin bar |
 | `admin_head` | -9999 | `NoticeCollector` | Early CSS to hide notices before JS loads |
@@ -27,6 +27,7 @@ WordPress hooks used by the plugin.
 | Hook | Class | Purpose |
 |------|-------|---------|
 | `admin_body_class` | `NoticeManager` | Adds `lw-plugins-admin-page` body class |
+| `admin_body_class` | `SettingsPage` | Adds `lw-zenadmin-screen` on the settings screen |
 
 ## Custom Action
 

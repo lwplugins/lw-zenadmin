@@ -33,7 +33,7 @@ Controls which widgets appear on the WordPress dashboard, grouped by source.
 - **Auto-discovery** — detects all registered dashboard widgets automatically
 - **Grouped display** — WordPress Core, WooCommerce, Third-party
 - **Sensible defaults** — Core + WooCommerce visible, Third-party hidden
-- **Checkbox UI** — simple table interface on the settings page
+- **Checklist UI** — grouped checklist on the settings screen
 
 ### Admin Menu Manager
 

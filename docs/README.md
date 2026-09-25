@@ -21,7 +21,7 @@ Controls which widgets appear on the WordPress dashboard, grouped by source.
 - **Auto-discovery** — detects all registered dashboard widgets automatically
 - **Grouped display** — WordPress Core, WooCommerce, Third-party
 - **Sensible defaults** — Core + WooCommerce visible, Third-party hidden
-- **Checkbox UI** — simple table interface on the settings page
+- **Checklist UI** — grouped checklist on the settings screen
 
 ### Admin Menu Manager
 
@@ -38,7 +38,7 @@ Controls which admin bar nodes are visible.
 
 - **Auto-discovery** — detects all registered admin bar nodes
 - **Protected nodes** — core items cannot be hidden
-- **Settings UI** — checkbox table on the Admin Bar tab
+- **Settings UI** — grouped checklist on the Admin Bar tab, indented by level
 
 ### WP-CLI
 
