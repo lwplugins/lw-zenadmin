@@ -3,8 +3,8 @@
  * Plugin Name:       LW ZenAdmin
  * Plugin URI:        https://github.com/lwplugins/lw-zenadmin
  * Description:       Lightweight admin cleanup — notices sidebar, dashboard widgets, admin menu, and admin bar manager.
- * Version:           1.3.5
- * Requires at least: 6.0
+ * Version:           1.4.0
+ * Requires at least: 6.6
  * Requires PHP:      8.0
  * Author:            LW Plugins
  * Author URI:        https://lwplugins.com
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants.
-define( 'LW_ZENADMIN_VERSION', '1.3.5' );
+define( 'LW_ZENADMIN_VERSION', '1.4.0' );
 define( 'LW_ZENADMIN_FILE', __FILE__ );
 define( 'LW_ZENADMIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'LW_ZENADMIN_URL', plugin_dir_url( __FILE__ ) );

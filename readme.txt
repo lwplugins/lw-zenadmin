@@ -1,9 +1,9 @@
 === LW ZenAdmin ===
 Contributors: lwplugins
 Tags: admin, notices, dashboard, widgets, cleanup
-Requires at least: 6.0
+Requires at least: 6.6
 Tested up to: 7.1
-Stable tag: 1.3.5
+Stable tag: 1.4.0
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -29,7 +29,7 @@ Control which widgets appear on your WordPress dashboard. Core and WooCommerce w
 
 * Auto-discovers all registered dashboard widgets
 * Grouped by source: WordPress Core, WooCommerce, Third-party
-* Simple checkbox interface to show/hide widgets
+* Searchable show/hide lists with per-group bulk actions
 * Sensible defaults — no setup required
 
 = Admin Bar Manager =
@@ -83,6 +83,16 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 3. Dashboard Widget Manager settings
 
 == Changelog ==
+
+= 1.4.0 =
+* New: redesigned settings screen - side navigation, Save / Discard in the top bar with Ctrl/Cmd+S, unsaved-change tracking and a leave-page warning, loading skeletons, mobile layout.
+* New: search field on the widget, menu and admin bar lists (ignores case and accents) and per-group "show all / hide all" actions that skip protected items.
+* New: REST API for the settings (lw-zenadmin/v1/admin/settings, administrators only) with validated, all-or-nothing saves.
+* Fix: menu, admin bar and widget names no longer include count badges or hidden text (e.g. "Comments 0 comments awaiting moderation"); stored names clean themselves on the next admin page load.
+* Fix: widgets with uppercase letters in their ID could never be shown again after saving; the exact ID is now stored.
+* Fix: items you did not change keep their visibility on save in every list (previously only on the Admin Bar tab).
+* Change: requires WordPress 6.6 (the new settings screen needs the react-jsx-runtime script core registers from 6.6).
+* Change: the classic settings tabs are removed.
 
 = 1.3.5 =
 * Fix: notices from themes and other plugins (for example a theme's purchase-code or recommended-plugins notice) could show on the LW ZenAdmin screen. They are now kept off every LW Plugins screen, whatever their markup.

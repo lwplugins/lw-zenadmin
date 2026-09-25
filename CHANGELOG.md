@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.4.0] - 2026-09-25
+
+### Added
+- Redesigned settings screen: side navigation, Save / Discard in the top bar with Ctrl/Cmd+S, unsaved-change tracking and a leave-page warning, loading skeletons, mobile layout
+- Search field on the widget, menu and admin bar lists (ignores case and accents) and per-group "show all / hide all" actions that skip protected items
+- REST API for the settings (`lw-zenadmin/v1/admin/settings`, administrators only) with validated, all-or-nothing saves
+
+### Fixed
+- Menu, admin bar and widget names no longer include count badges or hidden text (e.g. "Comments 0 comments awaiting moderation"); stored names clean themselves on the next admin page load
+- Widgets with uppercase letters in their ID could never be shown again after saving; the exact ID is now stored
+- Items you did not change keep their visibility on save in every list (previously only on the Admin Bar tab)
+
+### Changed
+- Requires WordPress 6.6: the new settings screen needs the `react-jsx-runtime` script core registers from 6.6
+- The classic settings tabs are removed
+
 ## [1.3.5] - 2026-09-25
 
 ### Fixed
