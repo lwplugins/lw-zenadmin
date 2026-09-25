@@ -85,6 +85,10 @@ final class PlainTitleTest extends TestCase {
 				"<img alt='' src='https://example.com/a.png' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>Claude Test</span><span class='username'>claude-test</span><span class='display-name edit-profile'>Edit Profile</span>",
 				'Claude Test claude-test Edit Profile',
 			],
+			'admin bar: my account (hu)'    => [
+				'Üdv <span class="display-name">Claude Test</span>!',
+				'Üdv Claude Test!',
+			],
 			'inline formatting joins'       => [
 				'Word<strong>Press</strong> <em>News</em>',
 				'WordPress News',

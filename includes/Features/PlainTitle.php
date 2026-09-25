@@ -182,7 +182,8 @@ final class PlainTitle {
 	}
 
 	/**
-	 * Decode entities and collapse whitespace (non-breaking spaces too).
+	 * Decode entities, collapse whitespace (non-breaking spaces too) and drop
+	 * a space left before closing punctuation.
 	 *
 	 * @param string $text Text with entities.
 	 * @return string
@@ -190,6 +191,7 @@ final class PlainTitle {
 	private static function normalize( string $text ): string {
 		$text = html_entity_decode( $text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
 		$text = preg_replace( '/[\s\x{00A0}\x{202F}]+/u', ' ', $text );
+		$text = preg_replace( '/ (?=[!?.,:;)\]])/u', '', (string) $text ); // A tag boundary before "!" is not a word break.
 
 		return trim( (string) $text );
 	}
