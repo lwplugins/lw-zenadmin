@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: LW ZenAdmin 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/lwplugins/lw-zenadmin/issues\n"
+"Project-Id-Version: LW ZenAdmin 1.3.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lw-zenadmin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LW Plugins <info@lwplugins.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-08T13:51:12+00:00\n"
+"POT-Creation-Date: 2026-09-25T20:19:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lw-zenadmin\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the plugin
 #: lw-zenadmin.php
-msgid "Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets."
+msgid "Lightweight admin cleanup — notices sidebar, dashboard widgets, admin menu, and admin bar manager."
 msgstr ""
 
 #. Author of the plugin
@@ -34,6 +34,7 @@ msgstr ""
 #: includes/Admin/ParentPage.php:106
 #: includes/Admin/ParentPage.php:107
 #: includes/Admin/ParentPage.php:128
+#: includes/Admin/Settings/MenuGrouperTrait.php:36
 msgid "LW Plugins"
 msgstr ""
 
@@ -46,111 +47,57 @@ msgstr ""
 msgid "Lightweight plugins for WordPress - minimal footprint, maximum impact."
 msgstr ""
 
-#: includes/Admin/ParentPage.php:180
+#: includes/Admin/ParentPage.php:189
 msgid "Active"
 msgstr ""
 
-#: includes/Admin/ParentPage.php:188
+#: includes/Admin/ParentPage.php:197
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/ParentPage.php:192
+#: includes/Admin/ParentPage.php:201
 msgid "Get Plugin"
 msgstr ""
 
-#: includes/Admin/Settings/TabNotices.php:34
-#: includes/Features/NoticeCollector.php:44
-#: includes/Features/NoticePanel.php:34
-msgid "Notices"
-msgstr ""
-
-#: includes/Admin/Settings/TabNotices.php:53
-msgid "Notice Collector"
-msgstr ""
-
-#: includes/Admin/Settings/TabNotices.php:57
-msgid "Collect all admin notices into a sidebar panel accessible from the admin bar. Keeps your admin pages clean and distraction-free."
-msgstr ""
-
-#: includes/Admin/Settings/TabNotices.php:63
-#: includes/Admin/Settings/TabWidgets.php:67
-msgid "Enable"
-msgstr ""
-
-#: includes/Admin/Settings/TabNotices.php:69
-msgid "Collect notices into sidebar panel"
-msgstr ""
-
-#: includes/Admin/Settings/TabNotices.php:70
-msgid "Adds a Notices button to the admin bar. All notices are moved into a slide-in panel."
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:38
-msgid "Widgets"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:57
-msgid "Dashboard Widget Manager"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:61
-msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:73
-msgid "Manage dashboard widget visibility"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:74
-msgid "Hide or show individual dashboard widgets based on your preferences."
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:96
-msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:105
-msgid "Widget Visibility"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:109
-msgid "Show"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:110
-msgid "Widget Name"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:111
-msgid "Widget ID"
-msgstr ""
-
-#: includes/Admin/Settings/TabWidgets.php:153
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:35
+#: includes/Admin/Settings/MenuGrouperTrait.php:28
+#: includes/Rest/Admin/Sections/WidgetSection.php:87
 msgid "WordPress Core"
 msgstr ""
 
-#: includes/Admin/Settings/TabWidgets.php:157
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:39
+#: includes/Admin/Settings/MenuGrouperTrait.php:32
+#: includes/Rest/Admin/Sections/WidgetSection.php:91
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/Admin/Settings/TabWidgets.php:161
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:43
+#: includes/Admin/Settings/MenuGrouperTrait.php:40
+#: includes/Rest/Admin/Sections/WidgetSection.php:95
 msgid "Third-party"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:57
-#: includes/Admin/SettingsPage.php:58
+#: includes/Admin/SettingsPage.php:66
+#: includes/Admin/SettingsPage.php:67
+#: includes/SiteManager/Integration.php:38
 msgid "ZenAdmin"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:113
-msgid "Settings saved."
+#: includes/Admin/SettingsPage.php:137
+msgid "Lightweight ZenAdmin"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:126
-msgid "Save Changes"
+#: includes/Admin/SettingsPage.php:138
+msgid "The settings screen files are missing. Re-install the plugin from a release ZIP, or run \"npm install && npm run build\" in the plugin directory."
 msgstr ""
 
-#: includes/Features/NoticeCollector.php:50
+#: includes/Features/NoticeCollector.php:59
+#: includes/Features/NoticePanel.php:34
+#: build/index.js:1
+msgid "Notices"
+msgstr ""
+
+#: includes/Features/NoticeCollector.php:65
 msgid "Admin Notices"
 msgstr ""
 
@@ -158,6 +105,344 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: includes/Features/NoticePanel.php:41
+#: includes/Features/NoticePanel.php:43
 msgid "No notices."
+msgstr ""
+
+#: includes/Features/NoticePanel.php:45
+#: build/index.js:1
+msgid "Notices from other plugins and themes are not shown on LW Plugins screens."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsController.php:65
+msgid "The request is too large."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsController.php:78
+msgid "Some settings are not valid. Nothing was saved."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsInput.php:63
+#: includes/Rest/Admin/SettingsInput.php:114
+msgid "Unknown setting."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsInput.php:103
+msgid "Expected an object of settings."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsInput.php:116
+msgid "Must be true or false."
+msgstr ""
+
+#: includes/Rest/Admin/SettingsInput.php:134
+msgid "Expected an object of item IDs and true or false."
+msgstr ""
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:148
+#, php-format
+msgid "Unknown item: \"%s\"."
+msgstr ""
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:151
+#, php-format
+msgid "\"%s\" must be true or false."
+msgstr ""
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:154
+#, php-format
+msgid "\"%s\" is protected and cannot be hidden."
+msgstr ""
+
+#: includes/SiteManager/Integration.php:39
+msgid "Admin UI management abilities"
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:38
+msgid "Get ZenAdmin Options"
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:39
+msgid "Get global LW ZenAdmin settings."
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:61
+msgid "Set ZenAdmin Options"
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:62
+msgid "Update LW ZenAdmin settings."
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:72
+msgid "Settings to update: notices_enabled, widgets_enabled, menu_enabled, adminbar_enabled."
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:102
+msgid "List Dashboard Widgets"
+msgstr ""
+
+#: includes/SiteManager/ZenAdminAbilities.php:103
+msgid "List all discovered dashboard widgets and their visibility status."
+msgstr ""
+
+#: includes/SiteManager/ZenAdminService.php:56
+msgid "Provide an options object with at least one key."
+msgstr ""
+
+#: includes/SiteManager/ZenAdminService.php:75
+msgid "No valid option keys provided."
+msgstr ""
+
+#. translators: %d: number of options updated
+#: includes/SiteManager/ZenAdminService.php:86
+#, php-format
+msgid "%d option(s) updated."
+msgstr ""
+
+#: lw-zenadmin.php:43
+msgid "Autoloader not found. Please run \"composer install\" in the plugin directory, or re-install the plugin from a release ZIP."
+msgstr ""
+
+#: build/index.js:1
+msgid "Try again"
+msgstr ""
+
+#: build/index.js:1
+msgid "Loading…"
+msgstr ""
+
+#: build/index.js:1
+msgid "That did not work. Please reload the page and try again."
+msgstr ""
+
+#: build/index.js:1
+msgid "Settings saved."
+msgstr ""
+
+#: build/index.js:1
+msgid "Nothing was saved. Fix the highlighted settings and save again."
+msgstr ""
+
+#: build/index.js:1
+msgid "LW Plugins (opens in a new tab)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Notice Collector"
+msgstr ""
+
+#: build/index.js:1
+msgid "Widgets"
+msgstr ""
+
+#: build/index.js:1
+msgid "Dashboard Widget Manager"
+msgstr ""
+
+#: build/index.js:1
+msgid "Menus"
+msgstr ""
+
+#: build/index.js:1
+msgid "Admin Menu Manager"
+msgstr ""
+
+#: build/index.js:1
+msgid "Admin Bar"
+msgstr ""
+
+#: build/index.js:1
+msgid "Admin Bar Manager"
+msgstr ""
+
+#: build/index.js:1
+msgid "Off"
+msgstr ""
+
+#: build/index.js:1
+msgid "Has invalid settings"
+msgstr ""
+
+#: build/index.js:1
+msgid "LW ZenAdmin home"
+msgstr ""
+
+#: build/index.js:1
+msgid "LW ZenAdmin sections"
+msgstr ""
+
+#: build/index.js:1
+msgid "Documentation"
+msgstr ""
+
+#: build/index.js:1
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Unsaved changes"
+msgstr ""
+
+#: build/index.js:1
+msgid "Discard"
+msgstr ""
+
+#: build/index.js:1
+msgid "Save changes"
+msgstr ""
+
+#: build/index.js:1
+msgid "On"
+msgstr ""
+
+#: build/index.js:1
+msgid "The notice collector is on"
+msgstr ""
+
+#: build/index.js:1
+msgid "The notice collector is off"
+msgstr ""
+
+#: build/index.js:1
+msgid "Adds a Notices button to the admin bar. All notices are moved into a slide-in panel."
+msgstr ""
+
+#: build/index.js:1
+msgid "Admin notices show on every page, as WordPress prints them."
+msgstr ""
+
+#: build/index.js:1
+msgid "How it works"
+msgstr ""
+
+#: build/index.js:1
+msgid "Collect all admin notices into a sidebar panel accessible from the admin bar. Keeps your admin pages clean and distraction-free."
+msgstr ""
+
+#: build/index.js:1
+msgid "The Notices button shows a live count of the collected notices."
+msgstr ""
+
+#: build/index.js:1
+msgid "Notices are hidden before the page is drawn, so they never flash."
+msgstr ""
+
+#: build/index.js:1
+msgid "Close the panel with Escape, the close button or a click outside it."
+msgstr ""
+
+#: build/index.js:1
+msgid "Protected"
+msgstr ""
+
+#. translators: 1: hidden items, 2: all items.
+#: build/index.js:2
+#, js-format
+msgid "%1$d of %2$d hidden"
+msgid_plural "%1$d of %2$d hidden"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/index.js:2
+msgid "The widget manager is on"
+msgstr ""
+
+#: build/index.js:2
+msgid "The widget manager is off"
+msgstr ""
+
+#: build/index.js:2
+msgid "Unchecked widgets are removed from the Dashboard."
+msgstr ""
+
+#: build/index.js:2
+msgid "Every widget shows on the Dashboard."
+msgstr ""
+
+#: build/index.js:2
+msgid "Widget Visibility"
+msgstr ""
+
+#: build/index.js:2
+msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
+msgstr ""
+
+#: build/index.js:2
+msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
+msgstr ""
+
+#: build/index.js:2
+msgid "The menu manager is on"
+msgstr ""
+
+#: build/index.js:2
+msgid "The menu manager is off"
+msgstr ""
+
+#: build/index.js:2
+msgid "Unchecked items are removed from the admin sidebar."
+msgstr ""
+
+#: build/index.js:2
+msgid "Every menu item shows in the admin sidebar."
+msgstr ""
+
+#: build/index.js:2
+msgid "Menu Visibility"
+msgstr ""
+
+#: build/index.js:2
+msgid "Control which menu items appear in the admin sidebar. Protected items (Dashboard, Settings, Plugins, LW Plugins) cannot be hidden."
+msgstr ""
+
+#: build/index.js:2
+msgid "No menu items discovered yet. Enable the feature and visit any admin page."
+msgstr ""
+
+#: build/index.js:2
+msgid "The admin bar manager is on"
+msgstr ""
+
+#: build/index.js:2
+msgid "The admin bar manager is off"
+msgstr ""
+
+#: build/index.js:2
+msgid "Unchecked items are removed from the admin bar."
+msgstr ""
+
+#: build/index.js:2
+msgid "Every item shows in the admin bar."
+msgstr ""
+
+#: build/index.js:2
+msgid "Admin Bar Visibility"
+msgstr ""
+
+#: build/index.js:2
+msgid "Control which items appear in the WordPress admin bar. Protected items (My Account, Logout) cannot be hidden."
+msgstr ""
+
+#: build/index.js:2
+msgid "No admin bar items discovered yet. Enable the feature and visit any page."
+msgstr ""
+
+#: build/index.js:2
+msgid "Open the Dashboard"
+msgstr ""
+
+#: build/index.js:2
+msgid "Reload page"
+msgstr ""
+
+#: build/index.js:2
+msgid "Detection only runs while the manager is on and saved."
+msgstr ""
+
+#: build/index.js:2
+msgid "The manager is off, so these choices do not apply yet. They are kept and take effect once you turn it on and save."
 msgstr ""

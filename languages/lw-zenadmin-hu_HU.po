@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LW ZenAdmin 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/lwplugins/lw-zenadmin/issues\n"
-"POT-Creation-Date: 2026-02-08T13:51:12+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lw-zenadmin\n"
+"POT-Creation-Date: 2026-09-25T20:18:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LW Plugins <info@lwplugins.com>\n"
@@ -13,6 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: lw-zenadmin\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
@@ -27,16 +28,13 @@ msgstr "https://github.com/lwplugins/lw-zenadmin"
 
 #. Description of the plugin
 #: lw-zenadmin.php
-msgid ""
-"Clean up your WordPress admin — collect notices into a sidebar panel and "
-"manage dashboard widgets."
-msgstr ""
-"Tedd rendbe a WordPress admin felületet — gyűjtsd a notice-okat egy oldalsáv"
-" panelbe, és kezeld a dashboard widgeteket."
+msgid "Lightweight admin cleanup — notices sidebar, dashboard widgets, admin menu, and admin bar manager."
+msgstr "Könnyűsúlyú admin rendrakás — értesítés-oldalsáv, vezérlőpult-widgetek, admin menü és admin sáv kezelése."
 
 #. Author of the plugin
 #: lw-zenadmin.php includes/Admin/ParentPage.php:106
 #: includes/Admin/ParentPage.php:107 includes/Admin/ParentPage.php:128
+#: includes/Admin/Settings/MenuGrouperTrait.php:36
 msgid "LW Plugins"
 msgstr "LW Plugins"
 
@@ -47,132 +45,57 @@ msgstr "https://lwplugins.com"
 
 #: includes/Admin/ParentPage.php:129
 msgid "Lightweight plugins for WordPress - minimal footprint, maximum impact."
-msgstr ""
-"Könnyű bővítmények WordPresshez – minimális terhelés, maximális hatás."
+msgstr "Könnyű bővítmények WordPresshez – minimális terhelés, maximális hatás."
 
-#: includes/Admin/ParentPage.php:180
+#: includes/Admin/ParentPage.php:189
 msgid "Active"
 msgstr "Aktív"
 
-#: includes/Admin/ParentPage.php:188
+#: includes/Admin/ParentPage.php:197
 msgid "Settings"
 msgstr "Beállítások"
 
-#: includes/Admin/ParentPage.php:192
+#: includes/Admin/ParentPage.php:201
 msgid "Get Plugin"
 msgstr "Bővítmény letöltése"
 
-#: includes/Admin/Settings/TabNotices.php:34
-#: includes/Features/NoticeCollector.php:44
-#: includes/Features/NoticePanel.php:34
-msgid "Notices"
-msgstr "Értesítések"
-
-#: includes/Admin/Settings/TabNotices.php:53
-msgid "Notice Collector"
-msgstr "Értesítés gyűjtő"
-
-#: includes/Admin/Settings/TabNotices.php:57
-msgid ""
-"Collect all admin notices into a sidebar panel accessible from the admin "
-"bar. Keeps your admin pages clean and distraction-free."
-msgstr ""
-"Gyűjtsd össze az összes admin értesítéseit egy oldalsáv panelbe, ami az admin "
-"bar-ból elérhető. Tisztán és zavaró tényezőktől mentesen tartja az admin "
-"oldalaidat."
-
-#: includes/Admin/Settings/TabNotices.php:63
-#: includes/Admin/Settings/TabWidgets.php:67
-msgid "Enable"
-msgstr "Engedélyezés"
-
-#: includes/Admin/Settings/TabNotices.php:69
-msgid "Collect notices into sidebar panel"
-msgstr "Értesítések gyűjtése oldalsáv panelbe"
-
-#: includes/Admin/Settings/TabNotices.php:70
-msgid ""
-"Adds a Notices button to the admin bar. All notices are moved into a slide-"
-"in panel."
-msgstr ""
-"Hozzáad egy Értesítések gombot az admin bar-hoz. Minden notice egy becsúszó "
-"panelbe kerül."
-
-#: includes/Admin/Settings/TabWidgets.php:38
-msgid "Widgets"
-msgstr "Widgetek"
-
-#: includes/Admin/Settings/TabWidgets.php:57
-msgid "Dashboard Widget Manager"
-msgstr "Dashboard Widget Kezelő"
-
-#: includes/Admin/Settings/TabWidgets.php:61
-msgid ""
-"Control which widgets appear on your WordPress dashboard. Core and "
-"WooCommerce widgets are enabled by default."
-msgstr ""
-"Szabályozd, mely widgetek jelenjenek meg a WordPress dashboardon. A core és "
-"a WooCommerce widgetek alapból engedélyezve vannak."
-
-#: includes/Admin/Settings/TabWidgets.php:73
-msgid "Manage dashboard widget visibility"
-msgstr "Dashboard widgetek láthatóságának kezelése"
-
-#: includes/Admin/Settings/TabWidgets.php:74
-msgid "Hide or show individual dashboard widgets based on your preferences."
-msgstr ""
-"Egyéni beállításaid alapján elrejtheted vagy megjelenítheted az egyes "
-"dashboard widgeteket."
-
-#: includes/Admin/Settings/TabWidgets.php:96
-msgid ""
-"No widgets discovered yet. Visit the Dashboard once so the plugin can detect"
-" them."
-msgstr ""
-"Még nem találtam widgeteket. Látogasd meg egyszer a Dashboardot, hogy a "
-"bővítmény fel tudja ismerni őket."
-
-#: includes/Admin/Settings/TabWidgets.php:105
-msgid "Widget Visibility"
-msgstr "Widget láthatóság"
-
-#: includes/Admin/Settings/TabWidgets.php:109
-msgid "Show"
-msgstr "Megjelenítés"
-
-#: includes/Admin/Settings/TabWidgets.php:110
-msgid "Widget Name"
-msgstr "Widget neve"
-
-#: includes/Admin/Settings/TabWidgets.php:111
-msgid "Widget ID"
-msgstr "Widget ID"
-
-#: includes/Admin/Settings/TabWidgets.php:153
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:35
+#: includes/Admin/Settings/MenuGrouperTrait.php:28
+#: includes/Rest/Admin/Sections/WidgetSection.php:87
 msgid "WordPress Core"
 msgstr "WordPress Core"
 
-#: includes/Admin/Settings/TabWidgets.php:157
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:39
+#: includes/Admin/Settings/MenuGrouperTrait.php:32
+#: includes/Rest/Admin/Sections/WidgetSection.php:91
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: includes/Admin/Settings/TabWidgets.php:161
+#: includes/Admin/Settings/AdminBarNodeGrouper.php:43
+#: includes/Admin/Settings/MenuGrouperTrait.php:40
+#: includes/Rest/Admin/Sections/WidgetSection.php:95
 msgid "Third-party"
 msgstr "Harmadik féltől származó"
 
-#: includes/Admin/SettingsPage.php:57 includes/Admin/SettingsPage.php:58
+#: includes/Admin/SettingsPage.php:66 includes/Admin/SettingsPage.php:67
+#: includes/SiteManager/Integration.php:38
 msgid "ZenAdmin"
 msgstr "ZenAdmin"
 
-#: includes/Admin/SettingsPage.php:113
-msgid "Settings saved."
-msgstr "Beállítások elmentve."
+#: includes/Admin/SettingsPage.php:137
+msgid "Lightweight ZenAdmin"
+msgstr "Lightweight ZenAdmin"
 
-#: includes/Admin/SettingsPage.php:126
-msgid "Save Changes"
-msgstr "Változtatások mentése"
+#: includes/Admin/SettingsPage.php:138
+msgid "The settings screen files are missing. Re-install the plugin from a release ZIP, or run \"npm install && npm run build\" in the plugin directory."
+msgstr "Hiányoznak a beállítási képernyő fájljai. Telepítsd újra a bővítményt egy kiadási ZIP-ből, vagy futtasd az \"npm install && npm run build\" parancsot a bővítmény mappájában."
 
-#: includes/Features/NoticeCollector.php:50
+#: includes/Features/NoticeCollector.php:59
+#: includes/Features/NoticePanel.php:34 build/index.js:1
+msgid "Notices"
+msgstr "Értesítések"
+
+#: includes/Features/NoticeCollector.php:65
 msgid "Admin Notices"
 msgstr "Admin értesítések"
 
@@ -180,6 +103,369 @@ msgstr "Admin értesítések"
 msgid "Close"
 msgstr "Bezárás"
 
-#: includes/Features/NoticePanel.php:41
+#: includes/Features/NoticePanel.php:43
 msgid "No notices."
 msgstr "Nincs notice."
+
+#: includes/Features/NoticePanel.php:45 build/index.js:1
+msgid "Notices from other plugins and themes are not shown on LW Plugins screens."
+msgstr "Más bővítmények és témák értesítései nem jelennek meg az LW Plugins képernyőkön."
+
+#: includes/Rest/Admin/SettingsController.php:65
+msgid "The request is too large."
+msgstr "A kérés túl nagy."
+
+#: includes/Rest/Admin/SettingsController.php:78
+msgid "Some settings are not valid. Nothing was saved."
+msgstr "Néhány beállítás érvénytelen. Semmi nem lett elmentve."
+
+#: includes/Rest/Admin/SettingsInput.php:63
+#: includes/Rest/Admin/SettingsInput.php:114
+msgid "Unknown setting."
+msgstr "Ismeretlen beállítás."
+
+#: includes/Rest/Admin/SettingsInput.php:103
+msgid "Expected an object of settings."
+msgstr "Beállításokat tartalmazó objektumot vártunk."
+
+#: includes/Rest/Admin/SettingsInput.php:116
+msgid "Must be true or false."
+msgstr "Csak igaz vagy hamis lehet."
+
+#: includes/Rest/Admin/SettingsInput.php:134
+msgid "Expected an object of item IDs and true or false."
+msgstr "Elemazonosítókat és igaz/hamis értékeket tartalmazó objektumot vártunk."
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:148
+#, php-format
+msgid "Unknown item: \"%s\"."
+msgstr "Ismeretlen elem: „%s”."
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:151
+#, php-format
+msgid "\"%s\" must be true or false."
+msgstr "„%s” csak igaz vagy hamis lehet."
+
+#. translators: %s: item ID.
+#: includes/Rest/Admin/SettingsInput.php:154
+#, php-format
+msgid "\"%s\" is protected and cannot be hidden."
+msgstr "„%s” védett, nem rejthető el."
+
+#: includes/SiteManager/Integration.php:39
+msgid "Admin UI management abilities"
+msgstr "Admin felület kezelése"
+
+#: includes/SiteManager/ZenAdminAbilities.php:38
+msgid "Get ZenAdmin Options"
+msgstr "ZenAdmin beállítások lekérése"
+
+#: includes/SiteManager/ZenAdminAbilities.php:39
+msgid "Get global LW ZenAdmin settings."
+msgstr "Az LW ZenAdmin általános beállításainak lekérése."
+
+#: includes/SiteManager/ZenAdminAbilities.php:61
+msgid "Set ZenAdmin Options"
+msgstr "ZenAdmin beállítások módosítása"
+
+#: includes/SiteManager/ZenAdminAbilities.php:62
+msgid "Update LW ZenAdmin settings."
+msgstr "Az LW ZenAdmin beállításainak frissítése."
+
+#: includes/SiteManager/ZenAdminAbilities.php:72
+msgid "Settings to update: notices_enabled, widgets_enabled, menu_enabled, adminbar_enabled."
+msgstr "Frissítendő beállítások: notices_enabled, widgets_enabled, menu_enabled, adminbar_enabled."
+
+#: includes/SiteManager/ZenAdminAbilities.php:102
+msgid "List Dashboard Widgets"
+msgstr "Vezérlőpult-widgetek listázása"
+
+#: includes/SiteManager/ZenAdminAbilities.php:103
+msgid "List all discovered dashboard widgets and their visibility status."
+msgstr "Az összes felderített vezérlőpult-widget listázása a láthatóságukkal együtt."
+
+#: includes/SiteManager/ZenAdminService.php:56
+msgid "Provide an options object with at least one key."
+msgstr "Adj meg egy legalább egy kulcsot tartalmazó options objektumot."
+
+#: includes/SiteManager/ZenAdminService.php:75
+msgid "No valid option keys provided."
+msgstr "Nem adtál meg érvényes beállításkulcsot."
+
+#. translators: %d: number of options updated
+#: includes/SiteManager/ZenAdminService.php:86
+#, php-format
+msgid "%d option(s) updated."
+msgstr "%d beállítás frissítve."
+
+#: lw-zenadmin.php:43
+msgid "Autoloader not found. Please run \"composer install\" in the plugin directory, or re-install the plugin from a release ZIP."
+msgstr "Nem található az autoloader. Futtasd a \"composer install\" parancsot a bővítmény mappájában, vagy telepítsd újra a bővítményt egy kiadási ZIP-ből."
+
+#: build/index.js:1
+msgid "Try again"
+msgstr "Újrapróbálás"
+
+#: build/index.js:1
+msgid "Loading…"
+msgstr "Betöltés…"
+
+#: build/index.js:1
+msgid "That did not work. Please reload the page and try again."
+msgstr "Ez nem sikerült. Töltsd újra az oldalt, és próbáld újra."
+
+#: build/index.js:1
+msgid "Settings saved."
+msgstr "Beállítások elmentve."
+
+#: build/index.js:1
+msgid "Nothing was saved. Fix the highlighted settings and save again."
+msgstr "Semmi nem lett elmentve. Javítsd a kiemelt beállításokat, és mentsd újra."
+
+#: build/index.js:1
+msgid "LW Plugins (opens in a new tab)"
+msgstr "LW Plugins (új lapon nyílik meg)"
+
+#: build/index.js:1
+msgid "Notice Collector"
+msgstr "Értesítés gyűjtő"
+
+#: build/index.js:1
+msgid "Widgets"
+msgstr "Widgetek"
+
+#: build/index.js:1
+msgid "Dashboard Widget Manager"
+msgstr "Dashboard Widget Kezelő"
+
+#: build/index.js:1
+msgid "Menus"
+msgstr "Menük"
+
+#: build/index.js:1
+msgid "Admin Menu Manager"
+msgstr "Admin menü kezelő"
+
+#: build/index.js:1
+msgid "Admin Bar"
+msgstr "Admin sáv"
+
+#: build/index.js:1
+msgid "Admin Bar Manager"
+msgstr "Admin sáv kezelő"
+
+#: build/index.js:1
+msgid "Off"
+msgstr "Ki"
+
+#: build/index.js:1
+msgid "Has invalid settings"
+msgstr "Érvénytelen beállításokat tartalmaz"
+
+#: build/index.js:1
+msgid "LW ZenAdmin home"
+msgstr "LW ZenAdmin kezdőlap"
+
+#: build/index.js:1
+msgid "LW ZenAdmin sections"
+msgstr "LW ZenAdmin szakaszok"
+
+#: build/index.js:1
+msgid "Documentation"
+msgstr "Dokumentáció"
+
+#: build/index.js:1
+msgid "(opens in a new tab)"
+msgstr "(új lapon nyílik meg)"
+
+#: build/index.js:1
+msgid "Unsaved changes"
+msgstr "Mentetlen változtatások"
+
+#: build/index.js:1
+msgid "Discard"
+msgstr "Elvetés"
+
+#: build/index.js:1
+msgid "Save changes"
+msgstr "Változtatások mentése"
+
+#: build/index.js:1
+msgid "On"
+msgstr "Be"
+
+#: build/index.js:1
+msgid "The notice collector is on"
+msgstr "Az értesítésgyűjtő be van kapcsolva"
+
+#: build/index.js:1
+msgid "The notice collector is off"
+msgstr "Az értesítésgyűjtő ki van kapcsolva"
+
+#: build/index.js:1
+msgid "Adds a Notices button to the admin bar. All notices are moved into a slide-in panel."
+msgstr "Hozzáad egy Értesítések gombot az admin bar-hoz. Minden notice egy becsúszó panelbe kerül."
+
+#: build/index.js:1
+msgid "Admin notices show on every page, as WordPress prints them."
+msgstr "Az admin értesítések minden oldalon megjelennek, ahogy a WordPress kiírja őket."
+
+#: build/index.js:1
+msgid "How it works"
+msgstr "Hogyan működik"
+
+#: build/index.js:1
+msgid "Collect all admin notices into a sidebar panel accessible from the admin bar. Keeps your admin pages clean and distraction-free."
+msgstr "Gyűjtsd össze az összes admin értesítéseit egy oldalsáv panelbe, ami az admin bar-ból elérhető. Tisztán és zavaró tényezőktől mentesen tartja az admin oldalaidat."
+
+#: build/index.js:1
+msgid "The Notices button shows a live count of the collected notices."
+msgstr "Az Értesítések gomb élőben mutatja az összegyűjtött értesítések számát."
+
+#: build/index.js:1
+msgid "Notices are hidden before the page is drawn, so they never flash."
+msgstr "Az értesítések már az oldal kirajzolása előtt elrejtőznek, így sosem villannak fel."
+
+#: build/index.js:1
+msgid "Close the panel with Escape, the close button or a click outside it."
+msgstr "A panelt az Escape billentyűvel, a bezárás gombbal vagy a panelen kívülre kattintva zárhatod be."
+
+#: build/index.js:1
+msgid "Protected"
+msgstr "Védett"
+
+#. translators: 1: hidden items, 2: all items.
+#: build/index.js:2
+msgid "%1$d of %2$d hidden"
+msgid_plural "%1$d of %2$d hidden"
+msgstr[0] "%2$d elemből %1$d rejtett"
+msgstr[1] "%2$d elemből %1$d rejtett"
+
+#: build/index.js:2
+msgid "The widget manager is on"
+msgstr "A widgetkezelő be van kapcsolva"
+
+#: build/index.js:2
+msgid "The widget manager is off"
+msgstr "A widgetkezelő ki van kapcsolva"
+
+#: build/index.js:2
+msgid "Unchecked widgets are removed from the Dashboard."
+msgstr "A kijelöletlen widgetek eltűnnek a Vezérlőpultról."
+
+#: build/index.js:2
+msgid "Every widget shows on the Dashboard."
+msgstr "Minden widget megjelenik a Vezérlőpulton."
+
+#: build/index.js:2
+msgid "Widget Visibility"
+msgstr "Widget láthatóság"
+
+#: build/index.js:2
+msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
+msgstr "Szabályozd, mely widgetek jelenjenek meg a WordPress dashboardon. A core és a WooCommerce widgetek alapból engedélyezve vannak."
+
+#: build/index.js:2
+msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
+msgstr "Még nem találtam widgeteket. Látogasd meg egyszer a Dashboardot, hogy a bővítmény fel tudja ismerni őket."
+
+#: build/index.js:2
+msgid "The menu manager is on"
+msgstr "A menükezelő be van kapcsolva"
+
+#: build/index.js:2
+msgid "The menu manager is off"
+msgstr "A menükezelő ki van kapcsolva"
+
+#: build/index.js:2
+msgid "Unchecked items are removed from the admin sidebar."
+msgstr "A kijelöletlen elemek eltűnnek az admin oldalsávból."
+
+#: build/index.js:2
+msgid "Every menu item shows in the admin sidebar."
+msgstr "Minden menüpont megjelenik az admin oldalsávban."
+
+#: build/index.js:2
+msgid "Menu Visibility"
+msgstr "Menü láthatóság"
+
+#: build/index.js:2
+msgid "Control which menu items appear in the admin sidebar. Protected items (Dashboard, Settings, Plugins, LW Plugins) cannot be hidden."
+msgstr "Te döntöd el, mely menüpontok jelenjenek meg az admin oldalsávban. A védett elemek (Vezérlőpult, Beállítások, Bővítmények, LW Plugins) nem rejthetők el."
+
+#: build/index.js:2
+msgid "No menu items discovered yet. Enable the feature and visit any admin page."
+msgstr "Még nincs felderített menüpont. Kapcsold be a funkciót, és nyiss meg bármelyik admin oldalt."
+
+#: build/index.js:2
+msgid "The admin bar manager is on"
+msgstr "Az admin sáv kezelő be van kapcsolva"
+
+#: build/index.js:2
+msgid "The admin bar manager is off"
+msgstr "Az admin sáv kezelő ki van kapcsolva"
+
+#: build/index.js:2
+msgid "Unchecked items are removed from the admin bar."
+msgstr "A kijelöletlen elemek eltűnnek az admin sávból."
+
+#: build/index.js:2
+msgid "Every item shows in the admin bar."
+msgstr "Minden elem megjelenik az admin sávban."
+
+#: build/index.js:2
+msgid "Admin Bar Visibility"
+msgstr "Admin sáv láthatóság"
+
+#: build/index.js:2
+msgid "Control which items appear in the WordPress admin bar. Protected items (My Account, Logout) cannot be hidden."
+msgstr "Te döntöd el, mely elemek jelenjenek meg a WordPress admin sávban. A védett elemek (Fiókom, Kilépés) nem rejthetők el."
+
+#: build/index.js:2
+msgid "No admin bar items discovered yet. Enable the feature and visit any page."
+msgstr "Még nincs felderített admin sáv elem. Kapcsold be a funkciót, és nyiss meg bármelyik oldalt."
+
+#: build/index.js:2
+msgid "Open the Dashboard"
+msgstr "Vezérlőpult megnyitása"
+
+#: build/index.js:2
+msgid "Reload page"
+msgstr "Oldal újratöltése"
+
+#: build/index.js:2
+msgid "Detection only runs while the manager is on and saved."
+msgstr "A felderítés csak akkor fut, ha a kezelő be van kapcsolva és elmentetted."
+
+#: build/index.js:2
+msgid "The manager is off, so these choices do not apply yet. They are kept and take effect once you turn it on and save."
+msgstr "A kezelő ki van kapcsolva, ezért ezek a beállítások még nem érvényesek. Megmaradnak, és akkor lépnek életbe, amikor bekapcsolod és mented."
+
+#~ msgid "Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets."
+#~ msgstr "Tedd rendbe a WordPress admin felületet — gyűjtsd a notice-okat egy oldalsáv panelbe, és kezeld a dashboard widgeteket."
+
+#~ msgid "Enable"
+#~ msgstr "Engedélyezés"
+
+#~ msgid "Collect notices into sidebar panel"
+#~ msgstr "Értesítések gyűjtése oldalsáv panelbe"
+
+#~ msgid "Manage dashboard widget visibility"
+#~ msgstr "Dashboard widgetek láthatóságának kezelése"
+
+#~ msgid "Hide or show individual dashboard widgets based on your preferences."
+#~ msgstr "Egyéni beállításaid alapján elrejtheted vagy megjelenítheted az egyes dashboard widgeteket."
+
+#~ msgid "Show"
+#~ msgstr "Megjelenítés"
+
+#~ msgid "Widget Name"
+#~ msgstr "Widget neve"
+
+#~ msgid "Widget ID"
+#~ msgstr "Widget ID"
+
+#~ msgid "Save Changes"
+#~ msgstr "Változtatások mentése"
