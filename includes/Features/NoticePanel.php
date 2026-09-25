@@ -38,7 +38,13 @@ final class NoticePanel {
 			</div>
 			<div class="lw-zenadmin-panel-body">
 				<p class="lw-zenadmin-empty">
-					<?php esc_html_e( 'No notices.', 'lw-zenadmin' ); ?>
+					<?php
+					if ( NoticeCollector::collects_here() ) {
+						esc_html_e( 'No notices.', 'lw-zenadmin' );
+					} else {
+						esc_html_e( 'Notices from other plugins and themes are not shown on LW Plugins screens.', 'lw-zenadmin' );
+					}
+					?>
 				</p>
 			</div>
 		</div>

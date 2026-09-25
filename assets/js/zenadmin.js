@@ -114,6 +114,13 @@
 		}
 	);
 
+	// On LW Plugins screens the page is kept free of other plugins' notices
+	// (NoticeManager); moving the markup it hides into the panel would show it.
+	if ( window.lwZenAdmin && false === window.lwZenAdmin.collect ) {
+		updateCount();
+		return;
+	}
+
 	// Collect notices after a short delay so common.js finishes relocating them.
 	setTimeout( collectNotices, 100 );
 

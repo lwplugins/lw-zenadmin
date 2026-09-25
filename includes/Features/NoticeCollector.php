@@ -9,10 +9,15 @@ declare(strict_types=1);
 
 namespace LightweightPlugins\ZenAdmin\Features;
 
+use LightweightPlugins\ZenAdmin\Admin\NoticeManager;
+
 /**
  * Adds admin bar button and early notice hiding.
  *
- * Collects admin notices into a sidebar panel via JS.
+ * Collects admin notices into a sidebar panel via JS. On LW Plugins screens
+ * it stands down: NoticeManager keeps other plugins' and themes' notices off
+ * those screens (with or without ZenAdmin), and collecting would move the
+ * markup it hides into the visible panel.
  */
 final class NoticeCollector {
 
@@ -23,6 +28,16 @@ final class NoticeCollector {
 		add_action( 'admin_bar_menu', [ $this, 'add_admin_bar_node' ], 999 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'admin_head', [ $this, 'hide_notices_early' ], -9999 );
+	}
+
+	/**
+	 * Whether notices are collected into the panel on the current screen.
+	 * Not on LW Plugins screens, which NoticeManager keeps notice-free.
+	 *
+	 * @return bool
+	 */
+	public static function collects_here(): bool {
+		return ! NoticeManager::is_lw_page();
 	}
 
 	/**
@@ -73,6 +88,10 @@ final class NoticeCollector {
 			LW_ZENADMIN_VERSION,
 			true
 		);
+
+		if ( ! self::collects_here() ) {
+			wp_add_inline_script( 'lw-zenadmin', 'window.lwZenAdmin = { collect: false };', 'before' );
+		}
 	}
 
 	/**
@@ -83,6 +102,10 @@ final class NoticeCollector {
 	 * @return void
 	 */
 	public function hide_notices_early(): void {
+		if ( ! self::collects_here() ) {
+			return; // NoticeManager's stylesheet hides them on LW Plugins screens.
+		}
+
 		echo '<style id="lw-zenadmin-early-hide">'
 			. '#wpbody-content > .notice:not(.lw-notice),'
 			. '#wpbody-content > .updated:not(.lw-notice),'
