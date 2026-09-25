@@ -75,11 +75,19 @@ final class PlainTitleTest extends TestCase {
 			],
 			'admin bar: updates'            => [
 				'<span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">1&nbsp;234</span><span class="screen-reader-text updates-available-text">1&nbsp;234 frissítés érhető el</span>',
-				'frissítés érhető el',
+				'Frissítés érhető el',
 			],
 			'admin bar: command palette'    => [
 				'<span class="ab-icon" aria-hidden="true"></span><span class="ab-label"><kbd>⌘K</kbd><span class="screen-reader-text"> Command Palette</span></span>',
 				'Command Palette',
+			],
+			'admin bar: user info spans'    => [
+				"<img alt='' src='https://example.com/a.png' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>Claude Test</span><span class='username'>claude-test</span><span class='display-name edit-profile'>Edit Profile</span>",
+				'Claude Test claude-test Edit Profile',
+			],
+			'inline formatting joins'       => [
+				'Word<strong>Press</strong> <em>News</em>',
+				'WordPress News',
 			],
 			'admin bar: new content'        => [
 				'<span class="ab-icon" aria-hidden="true"></span><span class="ab-label">New</span>',

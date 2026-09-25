@@ -46,6 +46,12 @@ final class PlainTitle {
 	private const VOID_TAGS = [ 'area', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'wbr' ];
 
 	/**
+	 * Inline formatting elements; any other tag is a word boundary, so
+	 * adjacent spans ("Name</span><span>username") do not run together.
+	 */
+	private const INLINE_TAGS = [ 'a', 'abbr', 'b', 'code', 'em', 'i', 'mark', 's', 'small', 'strong', 'sub', 'sup', 'u' ];
+
+	/**
 	 * Readable title from HTML ('' when there is none).
 	 *
 	 * @param string $html Title markup.
@@ -62,7 +68,7 @@ final class PlainTitle {
 
 		$fallback = self::normalize( self::without_numbers( self::normalize( $screen_reader ) ) );
 
-		return '' !== $fallback ? $fallback : $visible;
+		return '' !== $fallback ? self::capitalize( $fallback ) : $visible;
 	}
 
 	/**
@@ -79,6 +85,13 @@ final class PlainTitle {
 
 		foreach ( false === $tokens ? [] : $tokens as $token ) {
 			if ( '<' === $token[0] ) {
+				$name = self::tag_name( $token );
+
+				if ( '' !== $name && ! in_array( $name, self::INLINE_TAGS, true ) ) {
+					$visible .= ' ';
+					$sr      .= ' ';
+				}
+
 				self::apply_tag( $token, $stack );
 				continue;
 			}
@@ -108,13 +121,13 @@ final class PlainTitle {
 	 * @return void
 	 */
 	private static function apply_tag( string $tag, array &$stack ): void {
-		if ( ! preg_match( '/^<\s*(\/?)\s*([a-zA-Z][a-zA-Z0-9-]*)/', $tag, $match ) ) {
+		$name = self::tag_name( $tag );
+
+		if ( '' === $name ) {
 			return; // Comment, doctype or a stray "<".
 		}
 
-		$name = strtolower( $match[2] );
-
-		if ( '/' === $match[1] ) {
+		if ( str_starts_with( ltrim( substr( $tag, 1 ) ), '/' ) ) {
 			for ( $i = count( $stack ) - 1; $i >= 0; $i-- ) {
 				if ( $stack[ $i ][0] === $name ) {
 					array_splice( $stack, $i );
@@ -129,6 +142,16 @@ final class PlainTitle {
 		}
 
 		$stack[] = [ $name, self::kind( $name, $tag ) ];
+	}
+
+	/**
+	 * Lowercase element name of an opening or closing tag ('' for anything else).
+	 *
+	 * @param string $tag Tag markup.
+	 * @return string
+	 */
+	private static function tag_name( string $tag ): string {
+		return preg_match( '/^<\s*\/?\s*([a-zA-Z][a-zA-Z0-9-]*)/', $tag, $match ) ? strtolower( $match[1] ) : '';
 	}
 
 	/**
@@ -169,6 +192,20 @@ final class PlainTitle {
 		$text = preg_replace( '/[\s\x{00A0}\x{202F}]+/u', ' ', $text );
 
 		return trim( (string) $text );
+	}
+
+	/**
+	 * Upper-case the first letter ("updates available" -> "Updates available").
+	 *
+	 * @param string $text Text.
+	 * @return string
+	 */
+	private static function capitalize( string $text ): string {
+		if ( ! function_exists( 'mb_strtoupper' ) ) {
+			return ucfirst( $text );
+		}
+
+		return mb_strtoupper( mb_substr( $text, 0, 1 ) ) . mb_substr( $text, 1 );
 	}
 
 	/**
