@@ -109,6 +109,18 @@ final class PlainTitleTest extends TestCase {
 				"Tom &amp; Jerry&nbsp;&nbsp;\n Menu <!-- note -->",
 				'Tom & Jerry Menu',
 			],
+			'admin bar: site-name escaped'  => [
+				'Tom &amp; Jerry',
+				'Tom & Jerry',
+			],
+			'admin bar: site-name cut'      => [
+				'Tom &amp; Jerry&#039;s Cartoon Collection Fo&hellip;',
+				"Tom & Jerry's Cartoon Collection Fo\u{2026}",
+			],
+			'texturized ampersand'          => [
+				'Tom &#038; Jerry',
+				'Tom & Jerry',
+			],
 			'number in a label stays'       => [
 				'Top 10 Posts',
 				'Top 10 Posts',

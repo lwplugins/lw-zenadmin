@@ -91,4 +91,49 @@ final class AdminBarManagerTest extends MonkeyTestCase {
 
 		$this->assertSame( [ 'search' ], $admin_bar->get_removed_ids() );
 	}
+
+	/**
+	 * Core builds the site-name title as wp_html_excerpt( blogname, 40,
+	 * '&hellip;' ) from the stored (escaped) blog name, so the discovered
+	 * title must carry the decoded characters, never "&amp;" or "&hellip;".
+	 */
+	public function test_filter_nodes_stores_decoded_site_name_title(): void {
+		$saved = [];
+		Functions\when( 'add_action' )->justReturn( null );
+		Functions\when( 'get_option' )->alias(
+			static function ( string $name, $default = false ) {
+				return $default;
+			}
+		);
+		Functions\when( 'update_option' )->alias(
+			static function ( string $name, $value ) use ( &$saved ): bool {
+				$saved[ $name ] = $value;
+				return true;
+			}
+		);
+
+		$admin_bar = new WP_Admin_Bar();
+		$admin_bar->seed_nodes(
+			[
+				(object) [
+					'id'     => 'site-name',
+					'title'  => 'Tom &amp; Jerry',
+					'parent' => '',
+				],
+				(object) [
+					'id'     => 'view-site',
+					'title'  => 'Tom &amp; Jerry Cartoon Collection And Mo&hellip;',
+					'parent' => 'site-name',
+				],
+			]
+		);
+
+		$GLOBALS['wp_admin_bar'] = $admin_bar;
+
+		( new AdminBarManager() )->filter_nodes();
+
+		$discovered = $saved[ Options::DISCOVERED_ADMINBAR ];
+		$this->assertSame( 'Tom & Jerry', $discovered['site-name']['title'] );
+		$this->assertSame( "Tom & Jerry Cartoon Collection And Mo\u{2026}", $discovered['view-site']['title'] );
+	}
 }
