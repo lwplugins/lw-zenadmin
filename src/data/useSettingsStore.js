@@ -66,6 +66,37 @@ export function patchOf( server, draft ) {
 }
 
 /**
+ * Rebase the live draft onto a save response: start from the saved payload
+ * and keep every value the user changed after the save was sent (it differs
+ * from the snapshot that was sent), so edits made mid-save are not lost.
+ *
+ * @param {Object} data Save response (toSettings() result).
+ * @param {Object} sent Draft snapshot the save was built from.
+ * @param {Object} live Current draft.
+ * @return {Object} Rebased draft.
+ */
+export function rebaseDraft( data, sent, live ) {
+	const next = draftOf( data );
+	const keep = ( target, before, now ) =>
+		Object.keys( now ).forEach( ( key ) => {
+			if ( now[ key ] !== before[ key ] ) {
+				target[ key ] = now[ key ];
+			}
+		} );
+
+	keep( next.options, sent.options, live.options );
+	SECTION_KEYS.forEach( ( key ) =>
+		keep(
+			next.visibility[ key ],
+			sent.visibility[ key ],
+			live.visibility[ key ]
+		)
+	);
+
+	return next;
+}
+
+/**
  * The whole settings screen state: feature switches and the three visibility
  * lists, saved together (atomic). A `400 lw_zenadmin_invalid` keeps the draft
  * and puts `data.fields` next to each field; the server saved nothing.
@@ -138,9 +169,13 @@ export default function useSettingsStore() {
 			return false;
 		}
 		setIsSaving( true );
+		const sent = draft;
 		let ok = false;
 		try {
-			apply( await api.saveSettings( patch ) );
+			const data = await api.saveSettings( patch );
+			setServer( data );
+			setDraft( ( live ) => rebaseDraft( data, sent, live ) );
+			setErrors( {} );
 			ok = true;
 			createSuccessNotice( __( 'Settings saved.', 'lw-zenadmin' ), {
 				type: 'snackbar',
