@@ -17,15 +17,15 @@ import VisibilityGroup from './VisibilityGroup';
  * Grouped checklist of discovered items (checked = shown), with a search
  * field that only narrows what is listed (the draft is never touched).
  *
- * @param {Object}   props
- * @param {string}   props.title       Card heading.
- * @param {string}   props.description Card lead text.
- * @param {Object}   props.section     Section from the server (groups).
- * @param {Object}   props.draft       { id: visible } draft map.
- * @param {Object}   props.saved       { id: visible } saved map.
- * @param {Function} props.onChange    ( id, visible ) => void.
- * @param {Function} props.onBulk      ( { id: visible } ) => void.
- * @param {string[]} props.errors      Server validation messages.
+ * @param {Object}                                    props
+ * @param {string}                                    props.title       Card heading.
+ * @param {string}                                    props.description Card lead text.
+ * @param {Object}                                    props.section     Section from the server (groups).
+ * @param {Object}                                    props.draft       { id: visible } draft map.
+ * @param {Object}                                    props.saved       { id: visible } saved map.
+ * @param {(id: string, visible: boolean) => void}    props.onChange    Toggles one item.
+ * @param {(values: Object<string, boolean>) => void} props.onBulk      Sets many items ({ id: visible }).
+ * @param {string[]}                                  props.errors      Server validation messages.
  */
 export default function VisibilityList( {
 	title,

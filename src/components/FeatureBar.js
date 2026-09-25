@@ -10,17 +10,17 @@ import { Icon } from '@wordpress/icons';
  * itself (a card-level control, so it lives in this bar and never in the
  * right column of a settings row).
  *
- * @param {Object}   props
- * @param {Object}   props.icon     Icon.
- * @param {string}   props.label    Feature name: the switch's accessible name
- *                                  (the visible On/Off only tells the state).
- * @param {boolean}  props.checked  Feature on.
- * @param {Function} props.onChange Receives the new boolean.
- * @param {string}   props.onTitle  Headline when on.
- * @param {string}   props.offTitle Headline when off.
- * @param {string}   props.onText   Explanation when on.
- * @param {string}   props.offText  Explanation when off.
- * @param {string[]} props.errors   Server validation messages.
+ * @param {Object}                     props
+ * @param {Object}                     props.icon     Icon.
+ * @param {string}                     props.label    Feature name: the switch's accessible name
+ *                                                    (the visible On/Off only tells the state).
+ * @param {boolean}                    props.checked  Feature on.
+ * @param {(checked: boolean) => void} props.onChange Receives the new boolean.
+ * @param {string}                     props.onTitle  Headline when on.
+ * @param {string}                     props.offTitle Headline when off.
+ * @param {string}                     props.onText   Explanation when on.
+ * @param {string}                     props.offText  Explanation when off.
+ * @param {string[]}                   props.errors   Server validation messages.
  */
 export default function FeatureBar( {
 	icon,

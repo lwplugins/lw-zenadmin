@@ -13,12 +13,12 @@ import StatusBadge from './StatusBadge';
 /**
  * One item: checkbox + title (indented by depth), protected badge, ID.
  *
- * @param {Object}   props
- * @param {Object}   props.item     { id, title, protected, depth }.
- * @param {boolean}  props.checked  Draft visibility.
- * @param {boolean}  props.changed  Differs from the saved state.
- * @param {boolean}  props.context  Shown only as the parent of a match.
- * @param {Function} props.onChange Receives the new boolean.
+ * @param {Object}                     props
+ * @param {Object}                     props.item     { id, title, protected, depth }.
+ * @param {boolean}                    props.checked  Draft visibility.
+ * @param {boolean}                    props.changed  Differs from the saved state.
+ * @param {boolean}                    props.context  Shown only as the parent of a match.
+ * @param {(checked: boolean) => void} props.onChange Receives the new boolean.
  */
 export default function VisibilityItem( {
 	item,

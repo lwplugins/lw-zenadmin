@@ -7,9 +7,9 @@ import { __ } from '@wordpress/i18n';
 /**
  * Load failure with a retry button.
  *
- * @param {Object}   props
- * @param {string}   props.message Error text.
- * @param {Function} props.onRetry Retry.
+ * @param {Object}     props
+ * @param {string}     props.message Error text.
+ * @param {() => void} props.onRetry Retry.
  */
 export default function LoadError( { message, onRetry } ) {
 	return (

@@ -14,13 +14,13 @@ import VisibilityItem from './VisibilityItem';
  * items (protected ones and parents kept only for context are skipped), and
  * the items.
  *
- * @param {Object}   props
- * @param {Object}   props.group    { id, label, items, matched? }.
- * @param {number}   props.total    Items in the unfiltered group.
- * @param {Object}   props.draft    { id: visible } draft map.
- * @param {Object}   props.saved    { id: visible } saved map.
- * @param {Function} props.onChange ( id, visible ) => void.
- * @param {Function} props.onBulk   ( { id: visible } ) => void.
+ * @param {Object}                                    props
+ * @param {Object}                                    props.group    { id, label, items, matched? }.
+ * @param {number}                                    props.total    Items in the unfiltered group.
+ * @param {Object}                                    props.draft    { id: visible } draft map.
+ * @param {Object}                                    props.saved    { id: visible } saved map.
+ * @param {(id: string, visible: boolean) => void}    props.onChange Toggles one item.
+ * @param {(values: Object<string, boolean>) => void} props.onBulk   Sets many items ({ id: visible }).
  */
 export default function VisibilityGroup( {
 	group,
