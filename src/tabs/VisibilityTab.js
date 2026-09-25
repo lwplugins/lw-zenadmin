@@ -106,6 +106,9 @@ export default function VisibilityTab( { tab, store } ) {
 					onChange={ ( id, value ) =>
 						store.setVisible( tab.section, id, value )
 					}
+					onBulk={ ( values ) =>
+						store.setVisibleMany( tab.section, values )
+					}
 					errors={ store.errors[ tab.section ] }
 				/>
 			) : (

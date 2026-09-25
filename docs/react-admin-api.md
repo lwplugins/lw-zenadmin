@@ -183,5 +183,6 @@ Send only what changed. Every key is optional:
 | Menus: "No menu items discovered yet. Enable the feature and visit any admin page." | Empty state with the same guidance + "Reload page" button |
 | Admin Bar: "Manage admin bar visibility" checkbox | Admin Bar tab state bar switch |
 | Admin Bar: grouped table, depth-indented rows, protected rows, hidden "rendered" markers | Same rows; the marker rule is now server-side for every section (unsent = unchanged) |
+| — (new) | Every list card: a filter field (title or ID, case- and accent-insensitive; parents stay listed for a matching child; empty groups hidden; "no matches" line; never changes the draft) and per-group "Show all" / "Hide all" for the listed, non-protected rows (normal dirty tracking, Discard reverts) |
 | Admin Bar: "No admin bar items discovered yet…" | Empty state + "Reload page" button |
 | Menu save skipped when nothing discovered; admin bar save skipped when nothing discovered | Nothing to send (no items), and unknown IDs are rejected |

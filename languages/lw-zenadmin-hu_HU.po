@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LW ZenAdmin 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lw-zenadmin\n"
-"POT-Creation-Date: 2026-09-25T20:18:12+00:00\n"
+"POT-Creation-Date: 2026-09-25T20:28:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LW Plugins <info@lwplugins.com>\n"
@@ -28,8 +28,12 @@ msgstr "https://github.com/lwplugins/lw-zenadmin"
 
 #. Description of the plugin
 #: lw-zenadmin.php
-msgid "Lightweight admin cleanup — notices sidebar, dashboard widgets, admin menu, and admin bar manager."
-msgstr "Könnyűsúlyú admin rendrakás — értesítés-oldalsáv, vezérlőpult-widgetek, admin menü és admin sáv kezelése."
+msgid ""
+"Lightweight admin cleanup — notices sidebar, dashboard widgets, admin menu, "
+"and admin bar manager."
+msgstr ""
+"Könnyűsúlyú admin rendrakás — értesítés-oldalsáv, vezérlőpult-widgetek, "
+"admin menü és admin sáv kezelése."
 
 #. Author of the plugin
 #: lw-zenadmin.php includes/Admin/ParentPage.php:106
@@ -87,8 +91,13 @@ msgid "Lightweight ZenAdmin"
 msgstr "Lightweight ZenAdmin"
 
 #: includes/Admin/SettingsPage.php:138
-msgid "The settings screen files are missing. Re-install the plugin from a release ZIP, or run \"npm install && npm run build\" in the plugin directory."
-msgstr "Hiányoznak a beállítási képernyő fájljai. Telepítsd újra a bővítményt egy kiadási ZIP-ből, vagy futtasd az \"npm install && npm run build\" parancsot a bővítmény mappájában."
+msgid ""
+"The settings screen files are missing. Re-install the plugin from a release "
+"ZIP, or run \"npm install && npm run build\" in the plugin directory."
+msgstr ""
+"Hiányoznak a beállítási képernyő fájljai. Telepítsd újra a bővítményt egy "
+"kiadási ZIP-ből, vagy futtasd az \"npm install && npm run build\" parancsot "
+"a bővítmény mappájában."
 
 #: includes/Features/NoticeCollector.php:59
 #: includes/Features/NoticePanel.php:34 build/index.js:1
@@ -108,8 +117,11 @@ msgid "No notices."
 msgstr "Nincs notice."
 
 #: includes/Features/NoticePanel.php:45 build/index.js:1
-msgid "Notices from other plugins and themes are not shown on LW Plugins screens."
-msgstr "Más bővítmények és témák értesítései nem jelennek meg az LW Plugins képernyőkön."
+msgid ""
+"Notices from other plugins and themes are not shown on LW Plugins screens."
+msgstr ""
+"Más bővítmények és témák értesítései nem jelennek meg az LW Plugins "
+"képernyőkön."
 
 #: includes/Rest/Admin/SettingsController.php:65
 msgid "The request is too large."
@@ -134,7 +146,8 @@ msgstr "Csak igaz vagy hamis lehet."
 
 #: includes/Rest/Admin/SettingsInput.php:134
 msgid "Expected an object of item IDs and true or false."
-msgstr "Elemazonosítókat és igaz/hamis értékeket tartalmazó objektumot vártunk."
+msgstr ""
+"Elemazonosítókat és igaz/hamis értékeket tartalmazó objektumot vártunk."
 
 #. translators: %s: item ID.
 #: includes/Rest/Admin/SettingsInput.php:148
@@ -175,8 +188,12 @@ msgid "Update LW ZenAdmin settings."
 msgstr "Az LW ZenAdmin beállításainak frissítése."
 
 #: includes/SiteManager/ZenAdminAbilities.php:72
-msgid "Settings to update: notices_enabled, widgets_enabled, menu_enabled, adminbar_enabled."
-msgstr "Frissítendő beállítások: notices_enabled, widgets_enabled, menu_enabled, adminbar_enabled."
+msgid ""
+"Settings to update: notices_enabled, widgets_enabled, menu_enabled, "
+"adminbar_enabled."
+msgstr ""
+"Frissítendő beállítások: notices_enabled, widgets_enabled, menu_enabled, "
+"adminbar_enabled."
 
 #: includes/SiteManager/ZenAdminAbilities.php:102
 msgid "List Dashboard Widgets"
@@ -184,7 +201,8 @@ msgstr "Vezérlőpult-widgetek listázása"
 
 #: includes/SiteManager/ZenAdminAbilities.php:103
 msgid "List all discovered dashboard widgets and their visibility status."
-msgstr "Az összes felderített vezérlőpult-widget listázása a láthatóságukkal együtt."
+msgstr ""
+"Az összes felderített vezérlőpult-widget listázása a láthatóságukkal együtt."
 
 #: includes/SiteManager/ZenAdminService.php:56
 msgid "Provide an options object with at least one key."
@@ -201,8 +219,12 @@ msgid "%d option(s) updated."
 msgstr "%d beállítás frissítve."
 
 #: lw-zenadmin.php:43
-msgid "Autoloader not found. Please run \"composer install\" in the plugin directory, or re-install the plugin from a release ZIP."
-msgstr "Nem található az autoloader. Futtasd a \"composer install\" parancsot a bővítmény mappájában, vagy telepítsd újra a bővítményt egy kiadási ZIP-ből."
+msgid ""
+"Autoloader not found. Please run \"composer install\" in the plugin "
+"directory, or re-install the plugin from a release ZIP."
+msgstr ""
+"Nem található az autoloader. Futtasd a \"composer install\" parancsot a "
+"bővítmény mappájában, vagy telepítsd újra a bővítményt egy kiadási ZIP-ből."
 
 #: build/index.js:1
 msgid "Try again"
@@ -222,7 +244,8 @@ msgstr "Beállítások elmentve."
 
 #: build/index.js:1
 msgid "Nothing was saved. Fix the highlighted settings and save again."
-msgstr "Semmi nem lett elmentve. Javítsd a kiemelt beállításokat, és mentsd újra."
+msgstr ""
+"Semmi nem lett elmentve. Javítsd a kiemelt beállításokat, és mentsd újra."
 
 #: build/index.js:1
 msgid "LW Plugins (opens in a new tab)"
@@ -305,146 +328,224 @@ msgid "The notice collector is off"
 msgstr "Az értesítésgyűjtő ki van kapcsolva"
 
 #: build/index.js:1
-msgid "Adds a Notices button to the admin bar. All notices are moved into a slide-in panel."
-msgstr "Hozzáad egy Értesítések gombot az admin bar-hoz. Minden notice egy becsúszó panelbe kerül."
+msgid ""
+"Adds a Notices button to the admin bar. All notices are moved into a slide-"
+"in panel."
+msgstr ""
+"Hozzáad egy Értesítések gombot az admin bar-hoz. Minden notice egy becsúszó "
+"panelbe kerül."
 
 #: build/index.js:1
 msgid "Admin notices show on every page, as WordPress prints them."
-msgstr "Az admin értesítések minden oldalon megjelennek, ahogy a WordPress kiírja őket."
+msgstr ""
+"Az admin értesítések minden oldalon megjelennek, ahogy a WordPress kiírja "
+"őket."
 
 #: build/index.js:1
 msgid "How it works"
 msgstr "Hogyan működik"
 
 #: build/index.js:1
-msgid "Collect all admin notices into a sidebar panel accessible from the admin bar. Keeps your admin pages clean and distraction-free."
-msgstr "Gyűjtsd össze az összes admin értesítéseit egy oldalsáv panelbe, ami az admin bar-ból elérhető. Tisztán és zavaró tényezőktől mentesen tartja az admin oldalaidat."
+msgid ""
+"Collect all admin notices into a sidebar panel accessible from the admin "
+"bar. Keeps your admin pages clean and distraction-free."
+msgstr ""
+"Gyűjtsd össze az összes admin értesítéseit egy oldalsáv panelbe, ami az "
+"admin bar-ból elérhető. Tisztán és zavaró tényezőktől mentesen tartja az "
+"admin oldalaidat."
 
 #: build/index.js:1
 msgid "The Notices button shows a live count of the collected notices."
-msgstr "Az Értesítések gomb élőben mutatja az összegyűjtött értesítések számát."
+msgstr ""
+"Az Értesítések gomb élőben mutatja az összegyűjtött értesítések számát."
 
 #: build/index.js:1
 msgid "Notices are hidden before the page is drawn, so they never flash."
-msgstr "Az értesítések már az oldal kirajzolása előtt elrejtőznek, így sosem villannak fel."
+msgstr ""
+"Az értesítések már az oldal kirajzolása előtt elrejtőznek, így sosem "
+"villannak fel."
 
 #: build/index.js:1
 msgid "Close the panel with Escape, the close button or a click outside it."
-msgstr "A panelt az Escape billentyűvel, a bezárás gombbal vagy a panelen kívülre kattintva zárhatod be."
+msgstr ""
+"A panelt az Escape billentyűvel, a bezárás gombbal vagy a panelen kívülre "
+"kattintva zárhatod be."
 
 #: build/index.js:1
 msgid "Protected"
 msgstr "Védett"
 
-#. translators: 1: hidden items, 2: all items.
+#. translators: %s: group name, e.g. "WordPress Core".
 #: build/index.js:2
+msgid "Show every listed item in %s"
+msgstr "A(z) %s csoport minden listázott elemének megjelenítése"
+
+#: build/index.js:2
+msgid "Show all"
+msgstr "Mind látható"
+
+#. translators: %s: group name, e.g. "WordPress Core".
+#: build/index.js:3
+msgid "Hide every listed item in %s"
+msgstr "A(z) %s csoport minden listázott elemének elrejtése"
+
+#: build/index.js:3
+msgid "Hide all"
+msgstr "Mind rejtett"
+
+#. translators: 1: hidden items, 2: all items.
+#: build/index.js:4
 msgid "%1$d of %2$d hidden"
 msgid_plural "%1$d of %2$d hidden"
 msgstr[0] "%2$d elemből %1$d rejtett"
 msgstr[1] "%2$d elemből %1$d rejtett"
 
-#: build/index.js:2
+#: build/index.js:4
+msgid "Filter items"
+msgstr "Elemek szűrése"
+
+#: build/index.js:4
+msgid "Filter by name or ID…"
+msgstr "Szűrés név vagy azonosító alapján…"
+
+#. translators: %s: the search text.
+#: build/index.js:5
+msgid "No items match “%s”."
+msgstr "Nincs találat erre: „%s”."
+
+#: build/index.js:5
 msgid "The widget manager is on"
 msgstr "A widgetkezelő be van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The widget manager is off"
 msgstr "A widgetkezelő ki van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked widgets are removed from the Dashboard."
 msgstr "A kijelöletlen widgetek eltűnnek a Vezérlőpultról."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every widget shows on the Dashboard."
 msgstr "Minden widget megjelenik a Vezérlőpulton."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Widget Visibility"
 msgstr "Widget láthatóság"
 
-#: build/index.js:2
-msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
-msgstr "Szabályozd, mely widgetek jelenjenek meg a WordPress dashboardon. A core és a WooCommerce widgetek alapból engedélyezve vannak."
+#: build/index.js:5
+msgid ""
+"Control which widgets appear on your WordPress dashboard. Core and "
+"WooCommerce widgets are enabled by default."
+msgstr ""
+"Szabályozd, mely widgetek jelenjenek meg a WordPress dashboardon. A core és "
+"a WooCommerce widgetek alapból engedélyezve vannak."
 
-#: build/index.js:2
-msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
-msgstr "Még nem találtam widgeteket. Látogasd meg egyszer a Dashboardot, hogy a bővítmény fel tudja ismerni őket."
+#: build/index.js:5
+msgid ""
+"No widgets discovered yet. Visit the Dashboard once so the plugin can detect "
+"them."
+msgstr ""
+"Még nem találtam widgeteket. Látogasd meg egyszer a Dashboardot, hogy a "
+"bővítmény fel tudja ismerni őket."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The menu manager is on"
 msgstr "A menükezelő be van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The menu manager is off"
 msgstr "A menükezelő ki van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked items are removed from the admin sidebar."
 msgstr "A kijelöletlen elemek eltűnnek az admin oldalsávból."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every menu item shows in the admin sidebar."
 msgstr "Minden menüpont megjelenik az admin oldalsávban."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Menu Visibility"
 msgstr "Menü láthatóság"
 
-#: build/index.js:2
-msgid "Control which menu items appear in the admin sidebar. Protected items (Dashboard, Settings, Plugins, LW Plugins) cannot be hidden."
-msgstr "Te döntöd el, mely menüpontok jelenjenek meg az admin oldalsávban. A védett elemek (Vezérlőpult, Beállítások, Bővítmények, LW Plugins) nem rejthetők el."
+#: build/index.js:5
+msgid ""
+"Control which menu items appear in the admin sidebar. Protected items "
+"(Dashboard, Settings, Plugins, LW Plugins) cannot be hidden."
+msgstr ""
+"Te döntöd el, mely menüpontok jelenjenek meg az admin oldalsávban. A védett "
+"elemek (Vezérlőpult, Beállítások, Bővítmények, LW Plugins) nem rejthetők el."
 
-#: build/index.js:2
-msgid "No menu items discovered yet. Enable the feature and visit any admin page."
-msgstr "Még nincs felderített menüpont. Kapcsold be a funkciót, és nyiss meg bármelyik admin oldalt."
+#: build/index.js:5
+msgid ""
+"No menu items discovered yet. Enable the feature and visit any admin page."
+msgstr ""
+"Még nincs felderített menüpont. Kapcsold be a funkciót, és nyiss meg "
+"bármelyik admin oldalt."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The admin bar manager is on"
 msgstr "Az admin sáv kezelő be van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The admin bar manager is off"
 msgstr "Az admin sáv kezelő ki van kapcsolva"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked items are removed from the admin bar."
 msgstr "A kijelöletlen elemek eltűnnek az admin sávból."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every item shows in the admin bar."
 msgstr "Minden elem megjelenik az admin sávban."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Admin Bar Visibility"
 msgstr "Admin sáv láthatóság"
 
-#: build/index.js:2
-msgid "Control which items appear in the WordPress admin bar. Protected items (My Account, Logout) cannot be hidden."
-msgstr "Te döntöd el, mely elemek jelenjenek meg a WordPress admin sávban. A védett elemek (Fiókom, Kilépés) nem rejthetők el."
+#: build/index.js:5
+msgid ""
+"Control which items appear in the WordPress admin bar. Protected items (My "
+"Account, Logout) cannot be hidden."
+msgstr ""
+"Te döntöd el, mely elemek jelenjenek meg a WordPress admin sávban. A védett "
+"elemek (Fiókom, Kilépés) nem rejthetők el."
 
-#: build/index.js:2
-msgid "No admin bar items discovered yet. Enable the feature and visit any page."
-msgstr "Még nincs felderített admin sáv elem. Kapcsold be a funkciót, és nyiss meg bármelyik oldalt."
+#: build/index.js:5
+msgid ""
+"No admin bar items discovered yet. Enable the feature and visit any page."
+msgstr ""
+"Még nincs felderített admin sáv elem. Kapcsold be a funkciót, és nyiss meg "
+"bármelyik oldalt."
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Open the Dashboard"
 msgstr "Vezérlőpult megnyitása"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Reload page"
 msgstr "Oldal újratöltése"
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Detection only runs while the manager is on and saved."
-msgstr "A felderítés csak akkor fut, ha a kezelő be van kapcsolva és elmentetted."
+msgstr ""
+"A felderítés csak akkor fut, ha a kezelő be van kapcsolva és elmentetted."
 
-#: build/index.js:2
-msgid "The manager is off, so these choices do not apply yet. They are kept and take effect once you turn it on and save."
-msgstr "A kezelő ki van kapcsolva, ezért ezek a beállítások még nem érvényesek. Megmaradnak, és akkor lépnek életbe, amikor bekapcsolod és mented."
+#: build/index.js:5
+msgid ""
+"The manager is off, so these choices do not apply yet. They are kept and "
+"take effect once you turn it on and save."
+msgstr ""
+"A kezelő ki van kapcsolva, ezért ezek a beállítások még nem érvényesek. "
+"Megmaradnak, és akkor lépnek életbe, amikor bekapcsolod és mented."
 
-#~ msgid "Clean up your WordPress admin — collect notices into a sidebar panel and manage dashboard widgets."
-#~ msgstr "Tedd rendbe a WordPress admin felületet — gyűjtsd a notice-okat egy oldalsáv panelbe, és kezeld a dashboard widgeteket."
+#~ msgid ""
+#~ "Clean up your WordPress admin — collect notices into a sidebar panel and "
+#~ "manage dashboard widgets."
+#~ msgstr ""
+#~ "Tedd rendbe a WordPress admin felületet — gyűjtsd a notice-okat egy "
+#~ "oldalsáv panelbe, és kezeld a dashboard widgeteket."
 
 #~ msgid "Enable"
 #~ msgstr "Engedélyezés"
@@ -456,7 +557,9 @@ msgstr "A kezelő ki van kapcsolva, ezért ezek a beállítások még nem érvé
 #~ msgstr "Dashboard widgetek láthatóságának kezelése"
 
 #~ msgid "Hide or show individual dashboard widgets based on your preferences."
-#~ msgstr "Egyéni beállításaid alapján elrejtheted vagy megjelenítheted az egyes dashboard widgeteket."
+#~ msgstr ""
+#~ "Egyéni beállításaid alapján elrejtheted vagy megjelenítheted az egyes "
+#~ "dashboard widgeteket."
 
 #~ msgid "Show"
 #~ msgstr "Megjelenítés"

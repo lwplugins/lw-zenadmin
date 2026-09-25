@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-25T20:19:24+00:00\n"
+"POT-Creation-Date: 2026-09-25T20:28:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lw-zenadmin\n"
@@ -339,110 +339,144 @@ msgstr ""
 msgid "Protected"
 msgstr ""
 
-#. translators: 1: hidden items, 2: all items.
+#. translators: %s: group name, e.g. "WordPress Core".
 #: build/index.js:2
+#, js-format
+msgid "Show every listed item in %s"
+msgstr ""
+
+#: build/index.js:2
+msgid "Show all"
+msgstr ""
+
+#. translators: %s: group name, e.g. "WordPress Core".
+#: build/index.js:3
+#, js-format
+msgid "Hide every listed item in %s"
+msgstr ""
+
+#: build/index.js:3
+msgid "Hide all"
+msgstr ""
+
+#. translators: 1: hidden items, 2: all items.
+#: build/index.js:4
 #, js-format
 msgid "%1$d of %2$d hidden"
 msgid_plural "%1$d of %2$d hidden"
 msgstr[0] ""
 msgstr[1] ""
 
-#: build/index.js:2
+#: build/index.js:4
+msgid "Filter items"
+msgstr ""
+
+#: build/index.js:4
+msgid "Filter by name or ID…"
+msgstr ""
+
+#. translators: %s: the search text.
+#: build/index.js:5
+#, js-format
+msgid "No items match “%s”."
+msgstr ""
+
+#: build/index.js:5
 msgid "The widget manager is on"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The widget manager is off"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked widgets are removed from the Dashboard."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every widget shows on the Dashboard."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Widget Visibility"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Control which widgets appear on your WordPress dashboard. Core and WooCommerce widgets are enabled by default."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "No widgets discovered yet. Visit the Dashboard once so the plugin can detect them."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The menu manager is on"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The menu manager is off"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked items are removed from the admin sidebar."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every menu item shows in the admin sidebar."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Menu Visibility"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Control which menu items appear in the admin sidebar. Protected items (Dashboard, Settings, Plugins, LW Plugins) cannot be hidden."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "No menu items discovered yet. Enable the feature and visit any admin page."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The admin bar manager is on"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The admin bar manager is off"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Unchecked items are removed from the admin bar."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Every item shows in the admin bar."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Admin Bar Visibility"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Control which items appear in the WordPress admin bar. Protected items (My Account, Logout) cannot be hidden."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "No admin bar items discovered yet. Enable the feature and visit any page."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Open the Dashboard"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Reload page"
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "Detection only runs while the manager is on and saved."
 msgstr ""
 
-#: build/index.js:2
+#: build/index.js:5
 msgid "The manager is off, so these choices do not apply yet. They are kept and take effect once you turn it on and save."
 msgstr ""

@@ -119,16 +119,19 @@ export default function useSettingsStore() {
 		clearError( key );
 	};
 
-	const setVisible = ( section, id, value ) => {
+	const setVisibleMany = ( section, values ) => {
 		setDraft( ( prev ) => ( {
 			...prev,
 			visibility: {
 				...prev.visibility,
-				[ section ]: { ...prev.visibility[ section ], [ id ]: value },
+				[ section ]: { ...prev.visibility[ section ], ...values },
 			},
 		} ) );
 		clearError( section );
 	};
+
+	const setVisible = ( section, id, value ) =>
+		setVisibleMany( section, { [ id ]: value } );
 
 	const save = async () => {
 		if ( ! hasEdits || isSaving ) {
@@ -171,6 +174,7 @@ export default function useSettingsStore() {
 		errors,
 		setOption,
 		setVisible,
+		setVisibleMany,
 		hasEdits,
 		isSaving,
 		discard: () => {

@@ -578,14 +578,26 @@ $canvas: var(--wpds-color-background-surface-neutral-weak, #f6f7f7);
 		position: sticky;
 		top: var(--wp-admin--admin-bar--height, 46px);
 		z-index: 10;
-		height: 56px;
-		padding: 0 $gap-lg;
+		height: auto;
+		min-height: 56px;
+		padding: 6px $gap-lg;
+		gap: $gap-md;
 
+		// Long titles wrap to two lines instead of pushing Save off screen.
 		&__title {
+			display: -webkit-box;
+			flex: 1 1 auto;
+			min-width: 0;
 			overflow: hidden;
-			font-size: 16px;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			font-size: 15px;
+			line-height: 1.25;
+			overflow-wrap: anywhere;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+		}
+
+		&__actions {
+			flex: none;
 		}
 
 		&__dirty {
@@ -934,17 +946,36 @@ body.lw-zenadmin-screen {
 
 // Visibility lists ------------------------------------------------------------
 
+.lw-zen-search {
+	max-width: 420px;
+}
+
 .lw-zen-group {
 	& + & {
 		padding-top: $gap-lg;
 		border-top: 1px solid $stroke-weak;
 	}
 
+	&__head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4px $gap-sm;
+		margin: 0 0 $gap-sm;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 4px;
+		margin-right: -8px;
+	}
+
 	&__title {
 		display: flex;
 		align-items: baseline;
 		gap: $gap-sm;
-		margin: 0 0 $gap-sm;
+		margin: 0;
 		color: $muted;
 		font-size: 11px;
 		font-weight: 600;
@@ -994,6 +1025,11 @@ body.lw-zenadmin-screen {
 		box-shadow: inset 3px 0 0 $brand;
 	}
 
+	// Parent listed only because a child matches the search.
+	&.is-context .components-checkbox-control__label {
+		color: $muted;
+	}
+
 	&__id {
 		margin-left: auto;
 		color: $muted;
@@ -1013,6 +1049,15 @@ body.lw-zenadmin-screen {
 		display: block;
 		flex: none;
 		fill: currentColor;
+	}
+}
+
+.lw-zen-nomatch {
+	margin: 0;
+	color: $muted;
+
+	&:empty {
+		display: none;
 	}
 }
 

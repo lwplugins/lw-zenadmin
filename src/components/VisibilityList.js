@@ -1,55 +1,21 @@
 /**
  * WordPress dependencies
  */
-import { CheckboxControl } from '@wordpress/components';
+import { SearchControl } from '@wordpress/components';
+import { useMemo, useState } from '@wordpress/element';
 import { __, _n, sprintf } from '@wordpress/i18n';
-import { Icon, lock } from '@wordpress/icons';
 
 /**
  * Internal dependencies
  */
+import filterGroups from '../data/filterGroups';
 import Section from './Section';
 import StatusBadge from './StatusBadge';
+import VisibilityGroup from './VisibilityGroup';
 
 /**
- * One item: checkbox + title (indented by depth), protected badge, ID.
- *
- * @param {Object}   props
- * @param {Object}   props.item     { id, title, protected, depth }.
- * @param {boolean}  props.checked  Draft visibility.
- * @param {boolean}  props.changed  Differs from the saved state.
- * @param {Function} props.onChange Receives the new boolean.
- */
-function Item( { item, checked, changed, onChange } ) {
-	return (
-		<li
-			className={ `lw-zen-item${ item.depth ? '' : ' is-top' }${
-				changed ? ' is-changed' : ''
-			}` }
-			style={ { '--lw-zen-depth': item.depth } }
-		>
-			<CheckboxControl
-				__nextHasNoMarginBottom
-				label={ item.title }
-				checked={ item.protected || checked }
-				disabled={ item.protected }
-				onChange={ onChange }
-			/>
-			{ item.protected && (
-				<StatusBadge status="idle">
-					<span className="lw-zen-protected">
-						<Icon icon={ lock } size={ 14 } />
-						{ __( 'Protected', 'lw-zenadmin' ) }
-					</span>
-				</StatusBadge>
-			) }
-			<code className="lw-admin-code lw-zen-item__id">{ item.id }</code>
-		</li>
-	);
-}
-
-/**
- * Grouped checklist of discovered items (checked = shown).
+ * Grouped checklist of discovered items (checked = shown), with a search
+ * field that only narrows what is listed (the draft is never touched).
  *
  * @param {Object}   props
  * @param {string}   props.title       Card heading.
@@ -58,6 +24,7 @@ function Item( { item, checked, changed, onChange } ) {
  * @param {Object}   props.draft       { id: visible } draft map.
  * @param {Object}   props.saved       { id: visible } saved map.
  * @param {Function} props.onChange    ( id, visible ) => void.
+ * @param {Function} props.onBulk      ( { id: visible } ) => void.
  * @param {string[]} props.errors      Server validation messages.
  */
 export default function VisibilityList( {
@@ -67,8 +34,17 @@ export default function VisibilityList( {
 	draft,
 	saved,
 	onChange,
+	onBulk,
 	errors = [],
 } ) {
+	const [ query, setQuery ] = useState( '' );
+	const groups = useMemo(
+		() => filterGroups( section.groups, query ),
+		[ section.groups, query ]
+	);
+	const totals = Object.fromEntries(
+		section.groups.map( ( group ) => [ group.id, group.items.length ] )
+	);
 	const hidden = section.groups.reduce(
 		( sum, group ) =>
 			sum +
@@ -105,31 +81,33 @@ export default function VisibilityList( {
 					) ) }
 				</ul>
 			) }
-			{ section.groups.map( ( group ) => (
-				<div key={ group.id } className="lw-zen-group">
-					<h4 className="lw-zen-group__title">
-						<span>{ group.label }</span>
-						<span className="lw-admin-hint">
-							{ String( group.items.length ) }
-						</span>
-					</h4>
-					<ul className="lw-zen-items">
-						{ group.items.map( ( item ) => (
-							<Item
-								key={ item.id }
-								item={ item }
-								checked={ !! draft[ item.id ] }
-								changed={
-									draft[ item.id ] !== saved[ item.id ]
-								}
-								onChange={ ( value ) =>
-									onChange( item.id, value )
-								}
-							/>
-						) ) }
-					</ul>
-				</div>
+			<SearchControl
+				__nextHasNoMarginBottom
+				className="lw-zen-search"
+				label={ __( 'Filter items', 'lw-zenadmin' ) }
+				placeholder={ __( 'Filter by name or ID…', 'lw-zenadmin' ) }
+				value={ query }
+				onChange={ setQuery }
+			/>
+			{ groups.map( ( group ) => (
+				<VisibilityGroup
+					key={ group.id }
+					group={ group }
+					total={ totals[ group.id ] }
+					draft={ draft }
+					saved={ saved }
+					onChange={ onChange }
+					onBulk={ onBulk }
+				/>
 			) ) }
+			<p className="lw-zen-nomatch" aria-live="polite">
+				{ groups.length === 0 &&
+					sprintf(
+						/* translators: %s: the search text. */
+						__( 'No items match “%s”.', 'lw-zenadmin' ),
+						query.trim()
+					) }
+			</p>
 		</Section>
 	);
 }
