@@ -12,6 +12,8 @@
     <!-- React admin: sources and the committed wp-scripts build. -->
     <exclude-pattern>/src/*</exclude-pattern>
     <exclude-pattern>/build/*</exclude-pattern>
+    <!-- Shared LW Plugins hub assets: synced build from lwplugins/admin-hub. -->
+    <exclude-pattern>/assets/hub/*</exclude-pattern>
 
     <!-- Show progress -->
     <arg value="ps"/>

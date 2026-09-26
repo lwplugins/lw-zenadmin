@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace LightweightPlugins\ZenAdmin;
 
+use LightweightPlugins\ZenAdmin\Admin\Hub\Hub;
 use LightweightPlugins\ZenAdmin\Admin\SettingsPage;
 use LightweightPlugins\ZenAdmin\CLI\Commands as CLICommands;
 use LightweightPlugins\ZenAdmin\CLI\WidgetCommands as CLIWidgetCommands;
@@ -31,6 +32,7 @@ final class Plugin {
 	 */
 	public function __construct() {
 		$this->init_hooks();
+		Hub::init( LW_ZENADMIN_FILE );
 		$this->init_features();
 		$this->init_admin_bar();
 		$this->init_admin();
