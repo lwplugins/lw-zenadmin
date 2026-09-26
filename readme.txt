@@ -86,6 +86,7 @@ Yes. You can independently enable or disable the Notice Collector and the Widget
 
 = 1.4.1 =
 * Change: the LW Plugins overview page is now a searchable table showing each LW plugin's status and version, with one-click activation for installed plugins; it always uses the newest version shipped by any active LW plugin.
+* Fix: LW Site Manager's MCP server now lists this plugin's abilities (they were only reachable through REST).
 
 = 1.4.0 =
 * New: redesigned settings screen - side navigation, Save / Discard in the top bar with Ctrl/Cmd+S, unsaved-change tracking and a leave-page warning, loading skeletons, mobile layout.
