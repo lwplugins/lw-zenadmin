@@ -19,9 +19,15 @@ use LightweightPlugins\ZenAdmin\Rest\Admin\Sections\Registry;
 final class SettingsResponse {
 
 	/**
-	 * Plugin documentation.
+	 * Plugin page on docs.lwplugins.com, in the admin user's language.
+	 *
+	 * @return string
 	 */
-	public const DOCS_URL = 'https://github.com/lwplugins/lw-zenadmin#readme';
+	public static function docs_url(): string {
+		$lang = str_starts_with( get_user_locale(), 'hu' ) ? 'hu' : 'en';
+
+		return 'https://docs.lwplugins.com/' . $lang . '/plugins/lw-zenadmin';
+	}
 
 	/**
 	 * Build the payload from storage (fresh section instances).
@@ -46,7 +52,7 @@ final class SettingsResponse {
 			'meta'     => [
 				'defaults'      => Options::get_defaults(),
 				'dashboard_url' => admin_url( 'index.php' ),
-				'docs_url'      => self::DOCS_URL,
+				'docs_url'      => self::docs_url(),
 			],
 		];
 	}

@@ -94,7 +94,7 @@ final class SettingsPage {
 				[
 					'version'   => LW_ZENADMIN_VERSION,
 					'namespace' => Routes::NAMESPACE,
-					'docsUrl'   => SettingsResponse::DOCS_URL,
+					'docsUrl'   => SettingsResponse::docs_url(),
 				]
 			) . ';',
 			'before'

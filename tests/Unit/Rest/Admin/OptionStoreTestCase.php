@@ -37,6 +37,7 @@ abstract class OptionStoreTestCase extends MonkeyTestCase {
 		parent::setUp();
 		Options::clear_cache();
 		Functions\stubTranslationFunctions();
+		Functions\when( 'get_user_locale' )->justReturn( 'en_US' );
 
 		Functions\when( 'get_option' )->alias(
 			fn ( $name, $fallback = false ) => array_key_exists( $name, $this->store ) ? $this->store[ $name ] : $fallback

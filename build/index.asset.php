@@ -12,5 +12,5 @@
 		'wp-notices',
 		'wp-primitives'
 	),
-	'version' => '27e6adfba9a090292022'
+	'version' => 'f648d85be02a86a2021a'
 );
